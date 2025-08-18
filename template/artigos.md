@@ -8,7 +8,7 @@ Copie, preencha e salve como `artigos/nome-do-artigo.html`:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título do Artigo | Cristianism0's Hole</title>
+    <title>Título do Artigo | Cristianism0's Page</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23000'/><circle cx='32' cy='32' r='20' fill='%23000' stroke='%23555' stroke-width='2'/><circle cx='32' cy='32' r='12' fill='%23111'/><circle cx='32' cy='32' r='6' fill='%23333'/><path d='M32 12l4 8-4 8-4-8 4-8zm0 32l4 8-4 8-4-8 4-8zm20-20l-8 4-8-4 8-4 8 4zm-32 0l-8 4-8-4 8-4 8 4z' fill='%23444' opacity='0.7'/></svg>">
 </head>
@@ -34,7 +34,7 @@ Copie, preencha e salve como `artigos/nome-do-artigo.html`:
     </main>
 
     <footer>
-        <p>&copy; 2025 Cristianism0's Hole</p>
+        <p>&copy; 2025 Cristianism0's Page</p>
     </footer>
 </body>
 </html>

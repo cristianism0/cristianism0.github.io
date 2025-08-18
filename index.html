@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,33 +12,50 @@
         <h1>Cristianism0's Hole</h1>
         <nav>
             <ul>
-                <li>
-                    <a href="#" onclick="toggleProjects(event)">Projetos</a>
-                    <ul class="submenu" id="projects-list">
-                        <li><a href="https://github.com/cristianism0/WikiScrapper" target="_blank" rel="noopener noreferrer">Wiki Scrapper</a></li>
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" onclick="toggleArticles(event)">Artigos</a>
-                    <ul class="submenu" id="articles-list">
-                        <li><a href="html/artigo1.html">Primeiro Artigo</a></li>
-
-                    </ul>
-                </li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#artigos">Artigos e Estudos</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <p>bem vindo</p>
-        <p>teste index.html</p>
+        <!-- Seção de Projetos -->
+        <section id="projetos" class="section">
+            <h2>Projetos</h2>
+            <h3>Clique em um!</h3>
+            <ul>
+                <li><a href="https://github.com/cristianism0/WikiScrapper" target="_blank">Wiki Scrapper</a></li>
+            </ul>
+        </section>
+
+        <!-- Seção de Artigos -->
+        <section id="artigos" class="section">
+            <h2>Artigos e Estudos</h2>
+            <h3>Clique em um!</h3>
+            <ul>
+                <li><a href="artigos/artigo1.html">Artigo de Teste</a></li>
+            </ul>
+        </section>
+
+     <!-- ===== NOVA SEÇÃO ===== -->
+        <section id="novidades" class="section">
+            <h2>Novidades & Discussão</h2>
+
+            <div class="post">
+                <h3>apenas para teste</h3>
+                <p>18/08/2025</p>
+                <p>apenas para teste </p>
+                <ul>
+                    <li>Livro recomendado: <strong> teste (ISBN ou cod Artigo) </strong> (Código de exemplo) </li>
+                    <li><a href="#" target="_blank">Link para um artigo interessante</a></li>
+                </ul>
+            </div>
+
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Cristianism0's Hole</p>
+        <p>&copy; 2025 Cristianism0's Hole</p>
     </footer>
-
-    <script src="js/script.js"></script>
 </body>
 </html>

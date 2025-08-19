@@ -1,6 +1,6 @@
-# Template para Novidades
+# Template para Posts
 
-Copie e salve como `novidades/nome-da-novidade.html`:
+Copie e salve como `posts/nome-do-post.html`:
 
 ```html
 <!DOCTYPE html>
@@ -8,14 +8,14 @@ Copie e salve como `novidades/nome-da-novidade.html`:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novidade | Cristianism0's Page</title>
+    <title>Título do Post | Cristianism0's Page</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23000'/><circle cx='32' cy='32' r='20' fill='%23000' stroke='%23555' stroke-width='2'/><circle cx='32' cy='32' r='12' fill='%23111'/><circle cx='32' cy='32' r='6' fill='%23333'/><path d='M32 12l4 8-4 8-4-8 4-8zm0 32l4 8-4 8-4-8 4-8zm20-20l-8 4-8-4 8-4 8 4zm-32 0l-8 4-8-4 8-4 8 4z' fill='%23444' opacity='0.7'/></svg>">
 </head>
 <body>
     <header>
-        <h1>Título da Novidade</h1>
-        <p><small>DD/MM/AAAA</small></p>
+        <h1>Título do Post</h1>
+        <p><small>Publicado em: DD/MM/AAAA</small></p>
         <nav>
             <ul>
                 <li><a href="../index.html">← Voltar para a Página Inicial</a></li>
@@ -25,22 +25,23 @@ Copie e salve como `novidades/nome-da-novidade.html`:
 
     <main>
         <div class="conteudo">
-            <!-- CONTEÚDO DA NOVIDADE -->
-            <p>Descrição da novidade ou atualização...</p>
+            <!-- ESCREVA SEU CONTEÚDO AQUI -->
+            <p>Escreva seu conteúdo livre aqui. Pode usar:</p>
             
-            <h2>Itens Destacados</h2>
+            <h2>Título de Seção</h2>
+            <p>Parágrafos normais de texto.</p>
+            
+            <h3>Subtítulo</h3>
+            <p>Mais detalhes...</p>
+            
             <ul>
-                <li><strong>Livro recomendado:</strong> Nome do Livro (ISBN: 978-XX-XXXX-XXX-X)</li>
-                <li><strong>Artigo interessante:</strong> <a href="URL" target="_blank">Título do Artigo</a></li>
-                <li><strong>Ferramenta útil:</strong> <a href="URL" target="_blank">Nome da Ferramenta</a></li>
+                <li>Listas com <strong>itens importantes</strong></li>
+                <li>Segundo item da lista</li>
             </ul>
             
-            <h2>Reflexão ou Discussão</h2>
-            <p>Ponto para discussão ou reflexão pessoal...</p>
+            <p>Texto com <strong>negrito</strong>, <em>itálico</em> ou <a href="#" target="_blank">links</a>.</p>
             
-            <blockquote>
-                <p>Citação ou pensamento interessante...</p>
-            </blockquote>
+            </code></pre>
         </div>
     </main>
 

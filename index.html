@@ -3,65 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cristianism0's Page</title>
+    <title>Espaço do Cristianism0</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23000'/><circle cx='32' cy='32' r='20' fill='%23000' stroke='%23555' stroke-width='2'/><circle cx='32' cy='32' r='12' fill='%23111'/><circle cx='32' cy='32' r='6' fill='%23333'/><path d='M32 12l4 8-4 8-4-8 4-8zm0 32l4 8-4 8-4-8 4-8zm20-20l-8 4-8-4 8-4 8 4zm-32 0l-8 4-8-4 8-4 8 4z' fill='%23444' opacity='0.7'/></svg>">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
 </head>
 <body>
-    <header>
-        <h1>Cristianism0's Page</h1>
-  <!-- Botões GitHub e LinkedIn -->
-
-        <div class="redes-sociais">
-            <a href="https://github.com/cristianism0" target="_blank" class="botao-social">GitHub</a>
-            <a href="https://linkedin.com/in/cristian-sales-7092212b4" target="_blank" class="botao-social">LinkedIn</a>
+<header>
+    <div class="header-top">
+        <div class="header-left-controls">
+            <a href="https://github.com/cristianism0" target="_blank" class="social-btn github-btn" aria-label="GitHub">GitHub</a>
+            <a href="https://linkedin.com/in/seu-linkedin" target="_blank" class="social-btn linkedin-btn" aria-label="LinkedIn">LinkedIn</a>
         </div>
-
-
-        <nav>
-            <ul>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#posts">Posts e Estudos</a></li>
-                <li><a href="#novidades">Novidades</a></li>
-            </ul>
-        </nav>
-    </header>
+        
+        <div class="header-title">
+            <h1>Cristianism0</h1>
+        </div>
+        
+        <div class="header-right-controls">
+            <button id="modo-toggle" aria-label="Alternar modo claro/escuro">🌙</button>
+        </div>
+    </div>
+    
+    <nav>
+        <ul>
+            <li><a href="#projetos" onclick="toggleSection('projetos', event)">Projetos</a></li>
+            <li><a href="#posts" onclick="toggleSection('posts', event)">Posts</a></li>
+            <li><a href="#novidades" onclick="toggleSection('novidades', event)">Novidades</a></li>
+        </ul>
+    </nav>
+</header>
 
     <main>
-        <!--======================================================= Seção de Projetos =======================================================-->
-        <section id="projetos" class="section">
-            <h2>Projetos</h2>
-            <h3>Clique em um!</h3>
-            <ul>
-                <li><a href="https://github.com/cristianism0/WikiScrapper" target="_blank">Wiki Scrapper</a></li>
-                <li><a href="https://github.com/cristianism0/Monte_Carlo_Simulation" target="_blank">Simulação de Monte Carlo</a></li>
-            </ul>
+        <section id="projetos" class="section collapsed">
+            <h2 onclick="toggleSection('projetos')">Projetos <span class="seta">▼</span></h2>
+            <div class="conteudo-secao">
+                <ul>
+                    <li><a href="https://github.com/cristianism0/WikiScrapper" target="_blank">Wiki Scrapper</a></li>
+                    <li><a href="https://github.com/cristianism0/Monte_Carlo_Simulation" target="_blank">Simulação de Monte Carlo</a></li>
+                </ul>
+            </div>
         </section>
 
-        <!--======================================================= Seção de Posts e Estudos ========================================================-->
-        <section id="posts" class="section">
-            <h2>Posts e Estudos</h2>
-            <h3>Clique em um!</h3>
-            <ul>
-                <li><a href=""></a></li>
-                <!-- Adicione mais posts aqui -->
-            </ul>
+        <section id="posts" class="section collapsed">
+            <h2 onclick="toggleSection('posts')">Posts e Estudos <span class="seta">▼</span></h2>
+            <div class="conteudo-secao">
+                <ul>
+                    <li><a href="posts/artigo1.html">Artigo de Teste</a></li>
+                </ul>
+            </div>
         </section>
 
-
-
-        <!--======================================================= Seção de Novidades =======================================================-->
-        <section id="novidades" class="section">
-            <h2>Novidades & Discussão</h2>
-            <ul>
-                <li><a href="novidades/apresentacao.html">Primeiro Post - Apresentação</a></li>
-                <!-- Adicione mais novidades aqui -->
-            </ul>
+        <section id="novidades" class="section collapsed">
+            <h2 onclick="toggleSection('novidades')">Novidades <span class="seta">▼</span></h2>
+            <div class="conteudo-secao">
+                <ul>
+                    <li><a href="novidades/apresentacao.html">Primeiro Post - Apresentação</a></li>
+                </ul>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Cristianism0's Page</p>
+        <p>&copy; 2025 Espaço do Cristianism0</p>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

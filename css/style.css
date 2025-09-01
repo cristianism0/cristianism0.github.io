@@ -51,6 +51,9 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
 }
 
 /* Área superior com controles e título */
@@ -65,8 +68,9 @@ header {
 
 .header-title {
     text-align: center;
-    margin-right: 120px;
-    flex: 1;
+    position: static;
+    transform: none;
+    margin: 0 0 1rem;
 }
 
 header h1 {
@@ -325,6 +329,13 @@ footer {
     header {
         padding: 1rem;
     }
+
+    .header-title {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+    text-align: center;
+    }
     
     .header-top {
         flex-direction: column;
@@ -380,5 +391,14 @@ footer {
     nav a {
         padding: 0.4rem 0.8rem;
         font-size: 0.9rem;
+    }
+}
+/* Apenas para telas maiores que 768px */
+@media (min-width: 769px) {
+    .header-title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
     }
 }

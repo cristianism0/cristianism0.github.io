@@ -16,7 +16,7 @@
     <header>
         <h1>Título do Post</h1>
         <p><small>Publicado em: DD/MM/AAAA</small></p>
-        <button id="modo-toggle" aria-label="Alternar modo claro/escuro">🌙</button>
+        <button id="modo-toggle" aria-label="Alternar modo claro/escuro"></button>
         <nav>
             <ul>
                 <li><a href="../index.html">← Voltar para a Página Inicial</a></li>

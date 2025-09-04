@@ -2,8 +2,6 @@
 layout: post
 title: Ghost in the Shell e Blade Runner - O Absurdo da Identidade
 date: 2025-09-02
-tags:
-    - site
 ---
 
 # Ghost in the Shell e Blade Runner - O Absurdo da Identidade {#topo}

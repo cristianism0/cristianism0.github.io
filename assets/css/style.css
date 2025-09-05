@@ -568,3 +568,31 @@ nav a:focus,
         transform: translateX(-50%);
     }
 }
+
+/*teste*/
+.titulo-maquina {
+    display: inline-block;        /* necessário para animar width */
+    overflow: hidden;
+    border-right: 3px solid var(--cor-destaque);
+    white-space: nowrap;
+    font-weight: 700;
+    width: 0;                     /* começa invisível */
+    animation: typing 2.0s steps(11, end) forwards, blink-caret 0.75s step-end infinite 2s;
+}
+
+/* Digitação */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 23ch }
+}
+
+/* Cursor piscando */
+@keyframes blink-caret {
+    0%, 100% { border-color: transparent }
+    50% { border-color: var(--cor-destaque) }
+}
+
+/* Remove cursor no final */
+.titulo-maquina.fim {
+    border-right: none;
+}

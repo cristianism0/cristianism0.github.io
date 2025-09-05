@@ -178,3 +178,7 @@ window.addEventListener('resize', () => {
         content.style.maxHeight = content.scrollHeight + "px";
     });
 });
+const titulo = document.querySelector('.titulo-maquina');
+titulo.addEventListener('animationend', () => {
+    titulo.classList.add('fim');
+});

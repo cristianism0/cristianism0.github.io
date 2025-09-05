@@ -1,4 +1,6 @@
-// Definição dos ícones SVG
+// ============================================
+// Ícones SVG
+// ============================================
 const sunIcon = `
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
      xmlns="http://www.w3.org/2000/svg" stroke="white" stroke-width="2"
@@ -21,63 +23,158 @@ const moonIcon = `
   <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
 </svg>`;
 
-// Verificar preferência de modo salva
-const toggleBtn = document.getElementById('modo-toggle');
-if (localStorage.getItem('modoEscuro') === 'true') {
-    document.body.classList.add('modo-escuro');
-    toggleBtn.innerHTML = sunIcon;
-} else {
-    toggleBtn.innerHTML = moonIcon;
-}
-
-// Alternar entre modo claro e escuro
-toggleBtn.addEventListener('click', function() {
-    document.body.classList.toggle('modo-escuro');
-    const isModoEscuro = document.body.classList.contains('modo-escuro');
-    localStorage.setItem('modoEscuro', isModoEscuro);
-    this.innerHTML = isModoEscuro ? sunIcon : moonIcon;
-});
-
-// Função para toggle das seções
-function toggleSection(sectionId, event = null) {
-    if (event) event.preventDefault();
-    
+// ============================================
+// Toggle Seção com animação suave
+// ============================================
+function toggleSection(sectionId) {
     const section = document.getElementById(sectionId);
+    if (!section) return;
+    
+    const content = section.querySelector('.conteudo-secao');
     const isAberta = section.classList.contains('aberta');
-    
-    // Fechar todas as seções primeiro
-    document.querySelectorAll('.section').forEach(sec => {
-        sec.classList.remove('aberta');
-    });
-    
-    // Abrir a seção clicada se não estava aberta
+
+    // Se não está aberta, fechar outras seções
     if (!isAberta) {
+        document.querySelectorAll('.section.aberta').forEach(sec => {
+            if (sec.id !== sectionId) {
+                const secContent = sec.querySelector('.conteudo-secao');
+                secContent.style.maxHeight = "0";
+                sec.classList.remove('aberta');
+                
+                // Atualizar a seta
+                const seta = sec.querySelector('.seta');
+                if (seta) seta.style.transform = 'rotate(0deg)';
+            }
+        });
+    }
+
+    // Alternar a seção atual
+    if (!isAberta) {
+        // Abrir a seção
         section.classList.add('aberta');
+        content.style.maxHeight = content.scrollHeight + "px";
+        
+        // Atualizar a seta
+        const seta = section.querySelector('.seta');
+        if (seta) seta.style.transform = 'rotate(180deg)';
+        
+        // Scroll suave para a seção
+        setTimeout(() => {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    } else {
+        // Fechar a seção
+        content.style.maxHeight = "0";
+        section.classList.remove('aberta');
+        
+        // Atualizar a seta
+        const seta = section.querySelector('.seta');
+        if (seta) seta.style.transform = 'rotate(0deg)';
     }
 }
 
-// Fechar seções ao clicar fora delas
-document.addEventListener('click', function(event) {
-    if (!event.target.closest('.section') && !event.target.closest('nav')) {
-        document.querySelectorAll('.section').forEach(section => {
-            section.classList.remove('aberta');
+// ============================================
+// Inicialização quando o DOM estiver carregado
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Configurar o botão de modo claro/escuro
+    const toggleBtn = document.getElementById('modo-toggle');
+    if (toggleBtn) {
+        // Inicializar modo baseado no localStorage
+        if (localStorage.getItem('modoEscuro') === 'true') {
+            document.body.classList.add('modo-escuro');
+            toggleBtn.innerHTML = sunIcon;
+        } else {
+            toggleBtn.innerHTML = moonIcon;
+        }
+
+        // Event listener para alternância de modo
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('modo-escuro');
+            const isModoEscuro = document.body.classList.contains('modo-escuro');
+            localStorage.setItem('modoEscuro', isModoEscuro);
+            toggleBtn.innerHTML = isModoEscuro ? sunIcon : moonIcon;
         });
     }
-});
 
-// Tecla Escape para fechar seções
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        document.querySelectorAll('.section').forEach(section => {
-            section.classList.remove('aberta');
+    // Configurar os links de seção (MINI FEED)
+    document.querySelectorAll('.section-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const sectionId = this.getAttribute('data-section');
+            toggleSection(sectionId);
         });
-    }
-});
+    });
 
-// Abrir seção com hash na URL
-document.addEventListener('DOMContentLoaded', function() {
+    // Configurar os títulos das seções para toggle
+    document.querySelectorAll('.section h2').forEach(title => {
+        title.addEventListener('click', function() {
+            const sectionId = this.closest('.section').id;
+            toggleSection(sectionId);
+        });
+        
+        // Melhorar acessibilidade
+        title.setAttribute('role', 'button');
+        title.setAttribute('tabindex', '0');
+        title.setAttribute('aria-expanded', 'false');
+        
+        // Permitir ativação com Enter e Espaço
+        title.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const sectionId = this.closest('.section').id;
+                toggleSection(sectionId);
+            }
+        });
+    });
+
+    // Abrir seção se houver hash na URL
     const hash = window.location.hash.substring(1);
     if (hash && document.getElementById(hash)) {
-        toggleSection(hash);
+        // Pequeno delay para garantir que o DOM esteja totalmente pronto
+        setTimeout(() => {
+            toggleSection(hash);
+        }, 100);
     }
+});
+
+// ============================================
+// Fechar seções ao clicar fora ou pressionar Escape
+// ============================================
+document.addEventListener('click', event => {
+    if (!event.target.closest('.section') && !event.target.closest('nav') && 
+        !event.target.closest('.recent-news')) {
+        document.querySelectorAll('.section.aberta').forEach(section => {
+            const content = section.querySelector('.conteudo-secao');
+            content.style.maxHeight = "0";
+            section.classList.remove('aberta');
+            
+            // Atualizar a seta
+            const seta = section.querySelector('.seta');
+            if (seta) seta.style.transform = 'rotate(0deg)';
+        });
+    }
+});
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+        document.querySelectorAll('.section.aberta').forEach(section => {
+            const content = section.querySelector('.conteudo-secao');
+            content.style.maxHeight = "0";
+            section.classList.remove('aberta');
+            
+            // Atualizar a seta
+            const seta = section.querySelector('.seta');
+            if (seta) seta.style.transform = 'rotate(0deg)';
+        });
+    }
+});
+
+// ============================================
+// Recalcular altura quando a janela for redimensionada
+// ============================================
+window.addEventListener('resize', () => {
+    document.querySelectorAll('.section.aberta .conteudo-secao').forEach(content => {
+        content.style.maxHeight = content.scrollHeight + "px";
+    });
 });

@@ -12,70 +12,100 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
 </head>
 <body>
-<header>
-    <div class="header-top">
-        <div class="header-left-controls">
-            <a href="https://github.com/cristianism0" target="_blank" class="social-btn github-btn" aria-label="GitHub">GitHub</a>
-            <a href="https://linkedin.com/in/cristian-sales-7092212b4" target="_blank" class="social-btn linkedin-btn" aria-label="LinkedIn">LinkedIn</a>
+    <header>
+        <div class="header-top">
+            <div class="header-title">
+                <h1>Cristianism0</h1>
+            </div>
+            <div class="header-right-controls">
+                <button id="modo-toggle" aria-label="Alternar modo claro/escuro"></button>
+            </div>
         </div>
-        
-        <div class="header-title">
-            <h1>Cristianism0</h1>
-        </div>
-        
-        <div class="header-right-controls">
-            <button id="modo-toggle" aria-label="Alternar modo claro/escuro"></button>
-        </div>
-    </div>
-    
-    <nav>
-        <ul>
-            <li><a href="#projetos" onclick="toggleSection('projetos', event)">Projetos</a></li>
-            <li><a href="#posts" onclick="toggleSection('posts', event)">Posts</a></li>
-            <li><a href="#novidades" onclick="toggleSection('novidades', event)">Novidades</a></li>
-        </ul>
-    </nav>
-</header>
 
-<main>
-    <section id="projetos" class="section collapsed">
-        <h2 onclick="toggleSection('projetos')">Projetos <span class="seta">▼</span></h2>
-        <div class="conteudo-secao">
+        <nav>
             <ul>
-                <li><a href="https://github.com/cristianism0/WikiScrapper" target="_blank">Wiki Scrapper</a></li>
-                <li><a href="https://github.com/cristianism0/Monte_Carlo_Simulation" target="_blank">Simulação de Monte Carlo</a></li>
-                <li><a href="https://github.com/cristianism0/Fisica_1" target="_blank">Laboratório de Mecânica</a></li>
+                <li><a href="#projetos" onclick="toggleSection('projetos')">Projetos</a></li>
+                <li><a href="#posts" onclick="toggleSection('posts')">Posts</a></li>
+                <li><a href="#novidades" onclick="toggleSection('novidades')">Novidades</a></li>
             </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro-box">
+            <p>Bem-vindo ao meu site! Aqui compartilho alguns resumos de estudos ou projetos de obras que acho interessantes!
+                Espero que goste!
+            </p>
+
+            <div class="recent-news">
+                <p><strong>Recentes:</strong></p>
+                <ul>
+                    {% assign recent_posts = site.posts | sort: 'date' | reverse | slice: 0,3 %}
+                    {% for post in recent_posts %}
+                        <li>
+                            <a href="{{ post.url }}" target="_blank">{{ post.title }}</a> | 
+                            <a href="#posts" class="section-link" data-section="posts">Posts</a>
+                        </li>
+                    {% endfor %}
+
+                    {% if site.novidades %}
+                        {% assign recent_news = site.novidades | sort: 'date' | reverse | slice: 0,3 %}
+                        {% for novidade in recent_news %}
+                            <li>
+                                <a href="{{ novidade.url }}" target="_blank">{{ novidade.title }}</a> | 
+                                <a href="#novidades" class="section-link" data-section="novidades">Novidades</a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </section>
+
+        <section id="projetos" class="section collapsed">
+            <h2>Projetos <span class="seta">▼</span></h2>
+            <div class="conteudo-secao">
+                <ul>
+                    <li><a href="https://github.com/cristianism0/WikiScrapper" target="_blank">Wiki Scrapper</a></li>
+                    <li><a href="https://github.com/cristianism0/Monte_Carlo_Simulation" target="_blank">Simulação de Monte Carlo</a></li>
+                    <li><a href="https://github.com/cristianism0/Fisica_1" target="_blank">Laboratório de Mecânica</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="posts" class="section collapsed">
+            <h2>Posts e Estudos <span class="seta">▼</span></h2>
+            <div class="conteudo-secao">
+                <ul>
+                    {% for post in site.posts reversed %}
+                        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+
+        <section id="novidades" class="section collapsed">
+            <h2>Novidades <span class="seta">▼</span></h2>
+            <div class="conteudo-secao">
+                <ul>
+                    {% for novidade in site.novidades reversed %}
+                        <li><a href="{{ novidade.url }}">{{ novidade.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <a href="https://github.com/cristianism0" target="_blank" class="social-btn github-btn">GitHub</a>
+                <a href="https://linkedin.com/in/cristian-sales-7092212b4" target="_blank" class="social-btn linkedin-btn">LinkedIn</a>
+            </div>
+            <div class="footer-logo">&copy; Cristianism0</div>
+            <div class="footer-right"></div>
         </div>
-    </section>
+    </footer>
 
-    <section id="posts" class="section collapsed">
-        <h2 onclick="toggleSection('posts')">Posts e Estudos <span class="seta">▼</span></h2>
-        <div class="conteudo-secao">
-            <ul>
-                {% for post in site.posts reversed %}
-                    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-    </section>
-
-    <section id="novidades" class="section collapsed">
-        <h2 onclick="toggleSection('novidades')">Novidades <span class="seta">▼</span></h2>
-        <div class="conteudo-secao">
-            <ul>
-                {% for novidade in site.novidades reversed %}
-                    <li><a href="{{ novidade.url }}">{{ novidade.title }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-    </section>
-</main>
-
-<footer>
-    <p>&copy; 2025 Espaço do Cristianism0</p>
-</footer>
-
-<script src="/assets/js/script.js"></script>
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>

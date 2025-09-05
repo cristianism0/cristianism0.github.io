@@ -40,7 +40,7 @@
 
 html { 
     scroll-behavior: smooth; 
-    overflow-y: scroll; /* Força a barra de rolagem vertical a sempre estar visível */
+    overflow-y: scroll;
 }
 
 body {
@@ -51,7 +51,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden; /* Impede scroll horizontal */
+    overflow-x: hidden;
 }
 
 /*========================================
@@ -88,13 +88,16 @@ body {
     font-size: 0.95rem;
 }
 
-.recent-news a {
+.recent-news a,
+.section-link {
     color: var(--cor-destaque);
     text-decoration: underline;
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
+    cursor: pointer;
 }
 
-.recent-news a:hover { 
+.recent-news a:hover,
+.section-link:hover { 
     color: var(--cor-hover); 
 }
 
@@ -152,7 +155,7 @@ header h1 {
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .social-btn:hover {
@@ -174,7 +177,7 @@ header h1 {
     align-items: center;
     justify-content: center;
     color: var(--cor-texto);
-    transition: all 0.5s ease;
+    transition: all 0.2s ease;
 }
 
 #modo-toggle:hover { 
@@ -202,7 +205,7 @@ nav a {
     font-weight: 500;
     padding: 0.7rem 1.2rem;
     border-radius: 25px;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     border: 1px solid transparent;
     display: inline-block;
 }
@@ -243,7 +246,7 @@ main {
     border: none;
     width: 100%;
     text-align: left;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     position: relative;
     padding-right: 30px;
 }
@@ -256,14 +259,14 @@ main {
 .section h2 .seta {
     position: absolute;
     right: 15px;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
     font-size: 0.8em;
 }
 
 .conteudo-secao {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease;
+    transition: max-height 0.3s ease;
 }
 
 .section.aberta .conteudo-secao { 
@@ -279,7 +282,7 @@ main {
     margin: 0.8rem 0;
     padding-left: 0.5rem;
     border-left: 2px solid var(--cor-destaque);
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease;
 }
 
 .section li:hover { 
@@ -291,7 +294,7 @@ main {
     text-decoration: none;
     display: block;
     padding: 0.3rem 0;
-    transition: color 0.5s ease;
+    transition: color 0.3s ease;
 }
 
 .section a:hover { 
@@ -303,18 +306,6 @@ main {
     background-color: var(--cor-destaque);
     color: white;
     border-radius: 8px 8px 0 0;
-}
-
-/* Estilos para os links de seção no mini feed */
-.section-link {
-    color: var(--cor-destaque) !important;
-    text-decoration: underline !important;
-    cursor: pointer;
-    transition: color 0.5s ease;
-}
-
-.section-link:hover {
-    color: var(--cor-hover) !important;
 }
 
 /* Conteúdo de posts */
@@ -380,7 +371,7 @@ main {
 .conteudo-post a { 
     color: var(--cor-destaque); 
     text-decoration: underline; 
-    transition: color 0.5s ease; 
+    transition: color 0.3s ease; 
 }
 
 .conteudo-post a:hover { 
@@ -412,21 +403,22 @@ footer {
     align-items: center;
     padding: 0 1rem;
     position: relative;
+    flex-wrap: wrap;
 }
 
 .footer-left { 
     display: flex; 
     gap: 0.8rem; 
-    align-content: center; 
+    align-items: center;
 }
 
 .footer-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     font-weight: bold;
     font-size: 1rem;
+    text-align: center;
+    flex: 1;
 }
+
 
 /* Link ativo no mini-feed */
 .section li a.ativo {
@@ -441,12 +433,6 @@ nav a:focus,
 .section h2:focus {
     outline: 2px solid var(--cor-destaque);
     outline-offset: 2px;
-}
-
-/* Transição suave para o conteúdo do acordeão */
-.conteudo-secao {
-    overflow: hidden;
-    transition: max-height 0.5s ease;
 }
 
 /*========================================
@@ -476,9 +462,19 @@ nav a:focus,
         width: 100%; 
     }
     
-    .social-btn { 
-        padding: 0.4rem 0.8rem; 
-        font-size: 0.8rem; 
+    /* Botões sociais em mobile - PRECISA ser específico */
+    .footer-left .social-btn,
+    .header-left-controls .social-btn,
+    .header-right-controls .social-btn {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.8rem !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .footer-left .social-btn:hover,
+    .header-left-controls .social-btn:hover,
+    .header-right-controls .social-btn:hover {
+        transform: translateY(-1px) !important;
     }
     
     nav ul { 
@@ -489,6 +485,7 @@ nav a:focus,
     nav a { 
         padding: 0.5rem 1rem; 
         text-align: center; 
+        transition: all 0.3s ease !important;
     }
     
     main { 
@@ -499,6 +496,31 @@ nav a:focus,
         font-size: 1.1rem; 
         padding: 0.8rem; 
     }
+    
+    /* Footer responsivo */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .footer-left {
+        order: 1;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .footer-logo {
+        order: 2;
+        position: static;
+        transform: none;
+        width: 100%;
+    }
+    
+    .footer-right {
+        order: 3;
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -506,9 +528,12 @@ nav a:focus,
         font-size: 1.5rem; 
     }
     
-    .social-btn { 
-        padding: 0.3rem 0.6rem; 
-        font-size: 0.75rem; 
+    /* Botões sociais em mobile pequeno - MAIS específico */
+    .footer-left .social-btn,
+    .header-left-controls .social-btn,
+    .header-right-controls .social-btn {
+        padding: 0.3rem 0.6rem !important;
+        font-size: 0.75rem !important;
     }
     
     nav ul { 
@@ -519,6 +544,14 @@ nav a:focus,
         padding: 0.4rem 0.8rem; 
         font-size: 0.9rem; 
     }
+    
+    .footer-content {
+        gap: 1rem;
+    }
+    
+    .footer-logo {
+        font-size: 0.9rem;
+    }
 }
 
 @media (min-width: 769px) {
@@ -527,5 +560,11 @@ nav a:focus,
         left: 50%; 
         transform: translateX(-50%); 
         margin: 0; 
+    }
+    
+    .footer-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }

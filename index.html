@@ -43,7 +43,7 @@
                     {% assign recent_posts = site.posts | sort: 'date' | reverse | slice: 0,3 %}
                     {% for post in recent_posts %}
                         <li>
-                            <a href="{{ post.url }}" target="_blank">{{ post.title }}</a>   |   
+                            <a href="{{ post.url }}">{{ post.title }}</a>   |   
                             <a href="#posts" class="section-link" data-section="posts">Posts</a>
                         </li>
                     {% endfor %}
@@ -52,7 +52,7 @@
                         {% assign recent_news = site.novidades | sort: 'date' | reverse | slice: 0,3 %}
                         {% for novidade in recent_news %}
                             <li>
-                                <a href="{{ novidade.url }}" target="_blank">{{ novidade.title }}</a>   |   
+                                <a href="{{ novidade.url }}">{{ novidade.title }}</a>   |   
                                 <a href="#novidades" class="section-link" data-section="novidades">Novidades</a>
                             </li>
                         {% endfor %}

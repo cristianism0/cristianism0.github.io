@@ -8,6 +8,24 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+
+<!--SE A PAGINA CONTER ALGO ENVOLVIDO LATEX-->
+
+<!--PARA USAR, DEIXE NO YAML SE O MATH É TRUE OU FALSE. ex: [[math: true]]-->
+{% if page.math %}
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+{% endif %}
+
 </head>
 <body>
     <header>
@@ -37,5 +55,32 @@
   </div>
 </footer>
     <script src="/assets/js/script.js"></script>
+
+<a id="btnVoltarAoTopo" title="Voltar ao topo">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
+
+<script>
+// Pega o botão
+var mybutton = document.getElementById("btnVoltarAoTopo");
+
+// Quando rolar 20px para baixo da parte superior do documento aparece o botão
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.opacity = "1";
+    mybutton.style.visibility = "visible";
+  } else {
+    mybutton.style.opacity = "0";
+    mybutton.style.visibility = "hidden";
+  }
+}
+
+// Role para o topo do documento
+mybutton.onclick = function() {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
 </body>
 </html>

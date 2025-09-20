@@ -596,3 +596,31 @@ nav a:focus,
 .titulo-maquina.fim {
     border-right: none;
 }
+
+/* Estilos para o Botão "Voltar ao Topo" */
+#btnVoltarAoTopo {
+  display: none; /* Começa escondido */
+  position: fixed; /* Fica fixo na tela */
+  bottom: 20px; /* Distância do fundo */
+  right: 30px; /* Distância da direita */
+  z-index: 99; /* Garante que fique acima de outros elementos */
+  border: none;
+  outline: none;
+  background-color: #555; /* Cor de fundo */
+  color: white; /* Cor do ícone */
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%; /* Deixa o botão redondo */
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s, visibility 0.4s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#btnVoltarAoTopo:hover {
+  background-color: #333; /* Cor ao passar o mouse */
+}

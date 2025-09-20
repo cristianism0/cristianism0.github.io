@@ -170,15 +170,3 @@ document.addEventListener('keydown', event => {
     }
 });
 
-// ============================================
-// Recalcular altura quando a janela for redimensionada
-// ============================================
-window.addEventListener('resize', () => {
-    document.querySelectorAll('.section.aberta .conteudo-secao').forEach(content => {
-        content.style.maxHeight = content.scrollHeight + "px";
-    });
-});
-const titulo = document.querySelector('.titulo-maquina');
-titulo.addEventListener('animationend', () => {
-    titulo.classList.add('fim');
-});

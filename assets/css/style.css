@@ -180,12 +180,16 @@ header h1 {
     justify-content: center;
     color: var(--cor-texto);
     transition: all 0.2s ease;
-    margin: 1rem;
 }
 
 #modo-toggle:hover { 
     background-color: var(--cor-destaque); 
     color: white; 
+}
+
+#back-button {
+    display: inline-block;       
+    margin-top: 0.3rem; 
 }
 
 /* Navegação */
@@ -444,6 +448,7 @@ nav a:focus,
 @media (max-width: 768px) {
     header { 
         padding: 1rem; 
+
     }
     
     .header-title { 

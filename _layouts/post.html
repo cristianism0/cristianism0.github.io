@@ -9,9 +9,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
 
-<!--SE A PAGINA CONTER ALGO ENVOLVIDO LATEX-->
-
-<!--PARA USAR, DEIXE NO YAML SE O MATH É TRUE OU FALSE. ex: [[math: true]]-->
 {% if page.math %}
 <script>
   MathJax = {
@@ -34,7 +31,7 @@
         <button id="modo-toggle" aria-label="Alternar modo claro/escuro"></button>
         <nav>
             <ul>
-                <li><a href="/">← Voltar para a Página Inicial</a></li>
+                <li><a id="back-button" href="/">← Voltar para a Página Inicial</a></li>
             </ul>
         </nav>
     </header>

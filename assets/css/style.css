@@ -41,6 +41,7 @@
 html { 
     scroll-behavior: smooth; 
     overflow-y: scroll;
+    font-size: 112.5%;
 }
 
 body {
@@ -156,6 +157,7 @@ header h1 {
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.3s ease;
+    margin-bottom: 1rem;
 }
 
 .social-btn:hover {
@@ -178,6 +180,7 @@ header h1 {
     justify-content: center;
     color: var(--cor-texto);
     transition: all 0.2s ease;
+    margin: 1rem;
 }
 
 #modo-toggle:hover { 

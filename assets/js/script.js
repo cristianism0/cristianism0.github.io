@@ -170,3 +170,88 @@ document.addEventListener('keydown', event => {
     }
 });
 
+// ============================================
+// Highlight em links interno e footnotes
+// ============================================
+(function () {
+  'use strict';
+
+  const FLASH_CLASS = 'fh-flash';
+  const FLASH_DURATION = 2000; 
+
+  function cssEscape(str) {
+    if (window.CSS && CSS.escape) return CSS.escape(str);
+    return String(str).replace(/([ !"#$%&'()*+,./:;<=>?@[\\\]^`{|}~])/g, '\\$1');
+  }
+
+  function getElementByIdRobust(id) {
+    if (!id) return null;
+    // tentativa direta
+    let el = document.getElementById(id);
+    if (el) return el;
+    // fallback para ids com caracteres estranhos
+    try {
+      el = document.querySelector('[id="' + id + '"]') || document.querySelector('#' + cssEscape(id));
+    } catch (e) {
+      // fallback menos seguro
+      el = document.querySelector('[id="' + id.replace(/"/g, '\\"') + '"]') || null;
+    }
+    return el;
+  }
+
+  function flashElement(el) {
+    if (!el) return;
+    
+
+    el.classList.remove(FLASH_CLASS);
+
+    const hadTabindex = el.hasAttribute('tabindex');
+    if (!hadTabindex) el.setAttribute('tabindex', '-1');
+
+    void el.offsetWidth;
+    el.classList.add(FLASH_CLASS);
+
+    try {
+      el.focus({ preventScroll: true });
+    } catch (err) {
+      el.focus();
+    }
+
+    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    setTimeout(function () {
+      el.classList.remove(FLASH_CLASS);
+      if (!hadTabindex) el.removeAttribute('tabindex');
+    }, FLASH_DURATION + 50);
+  }
+
+  window.addEventListener('hashchange', function () {
+    const id = location.hash ? location.hash.slice(1) : '';
+    if (!id) return;
+    const el = getElementByIdRobust(id);
+    flashElement(el);
+  });
+
+  window.addEventListener('load', function () {
+    if (!location.hash) return;
+    const id = location.hash.slice(1);
+    const el = getElementByIdRobust(id);
+    setTimeout(function () { flashElement(el); }, 200);
+  });
+
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
+    const id = href.slice(1);
+
+    setTimeout(function () {
+      const el = getElementByIdRobust(id);
+      flashElement(el);
+    }, 10);
+  });
+
+})();

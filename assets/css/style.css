@@ -9,6 +9,9 @@
     --cor-borda: #d9c7a8;
     --cor-hover: #6b5d45;
     --sombra: 0 2px 8px rgba(0,0,0,0.1);
+
+    --highlight-bg: #ebd2a0;
+    --highlight-shadow: #8b7355;
 }
 
 .modo-escuro {
@@ -19,6 +22,10 @@
     --cor-borda: #2c3345;
     --cor-hover: #9abde3;
     --sombra: 0 2px 8px rgba(0,0,0,0.6);
+
+    --highlight-bg: rgba(139,115,85,0.16);
+    --highlight-shadow: 0 0 0 8px rgba(139,115,85,0.28);
+
 }
 
 /*========================================
@@ -221,6 +228,23 @@ nav a:hover {
     background-color: var(--cor-destaque);
     color: white;
     border-color: var(--cor-borda);
+}
+
+@keyframes fh-flash {
+  0%   { background-color: var(--highlight-bg); box-shadow: var(--highlight-shadow); }
+  40%  { background-color: color-mix(in srgb, var(--highlight-bg) 60%, transparent); box-shadow: var(--highlight-shadow); }
+  100% { background-color: transparent; box-shadow: none; }
+}
+
+.fh-flash {
+  animation: fh-flash 2000ms ease-out forwards;
+  border-radius: 3px;
+  outline: none;
+}
+
+/* reduz motion */
+@media (prefers-reduced-motion: reduce) {
+  .fh-flash { animation: none; background-color: var(--highlight-bg); }
 }
 
 /*========================================

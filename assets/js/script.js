@@ -80,22 +80,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Configurar o botão de modo claro/escuro
     const toggleBtn = document.getElementById('modo-toggle');
     if (toggleBtn) {
-        // Inicializar modo baseado no localStorage
-        if (localStorage.getItem('modoEscuro') === 'true') {
-            document.body.classList.add('modo-escuro');
-            toggleBtn.innerHTML = sunIcon;
-        } else {
-            toggleBtn.innerHTML = moonIcon;
-        }
+        const isDark = document.documentElement.classList.contains('dark');
+        toggleBtn.innerHTML = isDark ? sunIcon : moonIcon;
 
-        // Event listener para alternância de modo
         toggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('modo-escuro');
-            const isModoEscuro = document.body.classList.contains('modo-escuro');
-            localStorage.setItem('modoEscuro', isModoEscuro);
-            toggleBtn.innerHTML = isModoEscuro ? sunIcon : moonIcon;
+            document.documentElement.classList.toggle('dark');
+            const darkNow = document.documentElement.classList.contains('dark');
+            localStorage.setItem("theme", darkNow ? "dark" : "light");
+            toggleBtn.innerHTML = darkNow ? sunIcon : moonIcon;
         });
     }
+
 
     // Configurar os links de seção (MINI FEED)
     document.querySelectorAll('.section-link').forEach(link => {

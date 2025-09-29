@@ -207,9 +207,14 @@ Clique [aqui](#fluxograma) para voltar ao topo, ou no botão no canto inferior d
 - Psicologia das Massas e análise do eu - Sigmund Freud
 - Visual Pleasure and Narrative Cinema - Laura Mulvey
 - Crepúsculo dos Ídolos - Friedrich Nietzsche
+<<<<<<< HEAD
 
 ---
 # Notas de Rodapé 
+=======
+---
+### Notas de Rodapé
+>>>>>>> 660a471 (fix: FOUC)
 
 [^1]: Me aprofundo mais sobre o *Male Gaze* na [análise geral das Virgens Suicidas](#virgens_idealismo), aqui pretendo apenas utilizar de sua abordagem de **violência**.
 

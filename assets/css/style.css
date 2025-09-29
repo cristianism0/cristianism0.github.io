@@ -14,7 +14,7 @@
     --highlight-shadow: #8b7355;
 }
 
-.modo-escuro {
+html.dark {
     --cor-fundo: #121826;
     --cor-fundo-secao: #1f2433;
     --cor-texto: #e6eaf2;
@@ -300,9 +300,6 @@ main {
     transition: max-height 0.3s ease;
 }
 
-.section.aberta .conteudo-secao { 
-    max-height: 500px; 
-}
 
 .section ul { 
     list-style: none; 
@@ -381,7 +378,7 @@ main {
     border-radius: 4px;
 }
 
-.modo-escuro .conteudo-post blockquote { 
+html.dark .conteudo-post blockquote { 
     background-color: rgba(255,255,255,0.05); 
 }
 
@@ -409,11 +406,11 @@ main {
     color: var(--cor-hover); 
 }
 
-.modo-escuro .conteudo-post pre { 
+html.dark .conteudo-post pre { 
     background-color: #2a2a2a; 
 }
 
-.modo-escuro .conteudo-post blockquote { 
+html.dark .conteudo-post blockquote { 
     border-left-color: var(--cor-hover); 
 }
 

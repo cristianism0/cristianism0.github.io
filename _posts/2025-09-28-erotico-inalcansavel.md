@@ -208,6 +208,8 @@ Clique [aqui](#fluxograma) para voltar ao topo, ou no botão no canto inferior d
 - Visual Pleasure and Narrative Cinema - Laura Mulvey
 - Crepúsculo dos Ídolos - Friedrich Nietzsche
 
+---
+# Notas de Rodapé 
 
 [^1]: Me aprofundo mais sobre o *Male Gaze* na [análise geral das Virgens Suicidas](#virgens_idealismo), aqui pretendo apenas utilizar de sua abordagem de **violência**.
 

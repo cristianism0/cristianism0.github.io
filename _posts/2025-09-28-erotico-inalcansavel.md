@@ -210,11 +210,7 @@ Clique [aqui](#fluxograma) para voltar ao topo, ou no botão no canto inferior d
 <<<<<<< HEAD
 
 ---
-# Notas de Rodapé 
-=======
----
 ### Notas de Rodapé
->>>>>>> 660a471 (fix: FOUC)
 
 [^1]: Me aprofundo mais sobre o *Male Gaze* na [análise geral das Virgens Suicidas](#virgens_idealismo), aqui pretendo apenas utilizar de sua abordagem de **violência**.
 

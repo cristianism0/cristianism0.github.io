@@ -2,6 +2,12 @@
 
 Blog Pessoal.
 
+Caso for usar clone:
+
+```bash
+git clone --recursive git@github.com:cristianism0/cristianism0.github.io.git
+```
+
 Esse site tem como objetivo apenas um local para escrever.
 Esse site usa o [PaperMod](https://github.com/adityatelange/hugo-PaperMod) como template.
 

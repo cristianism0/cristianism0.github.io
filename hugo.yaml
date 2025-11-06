@@ -38,10 +38,6 @@ params:
   math: true
   mermaid: true
 
-  mermaid:
-    theme_light: default
-    theme_dark: forest
-
   assets:
     disableHLJS: false
     favicon: "favicon/favicon.ico"

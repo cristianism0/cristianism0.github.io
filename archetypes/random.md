@@ -4,6 +4,7 @@ title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 tags: []
 draft: true
 author: "cristianism0"
+layout: random
 description: ""
 TocOpen: false
 UseHugoToc: true

@@ -4,6 +4,7 @@ title: 'Minha Experiencia Linux'
 tags: []
 draft: true
 author: "cristianism0"
+layout: tech
 description: ""
 TocOpen: false
 UseHugoToc: true

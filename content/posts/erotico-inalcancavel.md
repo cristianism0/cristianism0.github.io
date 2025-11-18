@@ -1,7 +1,7 @@
 ---
 title: Wuthering Heights e As Virgens Suicidas - O Erótico Inalcançável
 date: 2025-10-21
-layout: post
+layout: random 
 tags: ["estudo", "literatura", "filosofia", "cinema"]
 math: false
 mermaid: false

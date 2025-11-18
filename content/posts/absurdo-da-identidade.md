@@ -1,7 +1,7 @@
 ---
 title: "Ghost in the Shell e Blade Runner - O Absurdo da Identidade"
 date: 2025-09-25
-layout: post
+layout: random 
 tags: ["estudo", "literatura", "filosofia", "cinema"]
 math: false
 mermaid: false

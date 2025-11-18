@@ -19,5 +19,6 @@ ShowRssButtonInSectionTermList: true
 editPost:
     URL: "https://github.com/cristianism0/Hugo-blog/tree/main/content"
     Text: "Sugerir Mudanças" 
-    appendFilePath: true 
+    appendFilePath: true
+topics: ['random']
 ---

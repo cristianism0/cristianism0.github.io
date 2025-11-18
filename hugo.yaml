@@ -1,11 +1,16 @@
 baseURL: "https://cristianism0.github.io"
 title: "Cristianism0"
 theme: "PaperMod"
-pagination.pagerSize: 5
+pagination.pagerSize: 6 
 
 defaultContentLanguage: pt
 
-ignoreLogs: 'warning-goldmark-raw-html'
+ignoreLogs: "warning-goldmark-raw-html"
+
+taxonomies:
+  category: category
+  tag: tags
+  topic: topics
 
 params:
 
@@ -54,19 +59,29 @@ params:
   profileMode:
     enabled: true
     title: "Cristianism0"
-    subtitle: "Blog para posts de estudos e curiosidades de baixa credibilidade."
+    subtitle: "Blog pessoal para postar conteúdos de tecnologia, filosofia, ou ... o que eu quiser :)" 
+
+
     imageUrl: "img/avatar/pfp.jpg"
     imageTitle: ""
     imageWidth: 120
     imageHeight: 120
 
     buttons:
-      - name: Posts
-        url: posts
+     # - name: Posts
+     #   url: posts 
+
+      - name: Arquivo
+        url: archives
+
+      - name: Tech
+        url: topics/tech
+
+      - name: Random
+        url: topics/random
+
       - name: Tags
         url: tags
-      - name: Arquivo
-        url: archives 
 
   socialIcons:
     - name: github
@@ -106,9 +121,24 @@ menu:
     #  url: /
     #  weight: 1
 
-    - identifier: posts
-      name: Posts
-      url: /posts/
+    #- identifier: posts
+    # name: Posts
+    # url: /posts/
+    # weight: 2
+
+    - identifier: archives
+      name: Arquivo
+      url: /archives/
+      weight: 1 
+
+    - identifier: topic_tech
+      name: Tech 
+      url: topics/tech
+      weight: 2
+
+    - identifier: topic_random
+      name: Random
+      url: topics/random
       weight: 2
 
     - identifier: search
@@ -119,18 +149,12 @@ menu:
     - identifier: tags
       name: Tags
       url: /tags/
-      weight: 3
-
-    - identifier: archives
-      name: Arquivo
-      url: /archives/
-      weight: 4
+      weight: 4 
 
     - identifier: about
       name: Sobre
       url: /about/
       weight: 10
-
 
 markup:
   goldmark:

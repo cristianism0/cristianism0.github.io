@@ -4,10 +4,9 @@ date: 2025-10-21
 layout: random 
 tags: ["estudo", "literatura", "filosofia", "cinema"]
 math: false
-mermaid: false
+mermaid: 
+draft: false
 description: "Até onde pode ir as paixões dos corpos? A morte é uma solução para obssessão?"
-toc: true
-comments: false
 topics: ['random']
 ---
 

@@ -5,9 +5,8 @@ layout: random
 tags: ["estudo", "literatura", "filosofia", "cinema"]
 math: false
 mermaid: false
+draft: false
 description: "Uma análise sobre um dos temas centrais das obras: Blade Runner e Ghost in the Shell - a identidade."
-toc: true
-comments: false
 topics: ['random']
 ---
 # Ghost in the Shell e Blade Runner - O Absurdo da Identidade

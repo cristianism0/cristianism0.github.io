@@ -3,6 +3,15 @@
 Blog Pessoal.
 
 Caso for usar clone:
+Dependências
+```bash
+sudo dnf install golang hugo
+```
+
+Versão:
+```bash
+hugo version   # => v0.112.4
+```
 
 ```bash
 git clone --recursive git@github.com:cristianism0/cristianism0.github.io.git

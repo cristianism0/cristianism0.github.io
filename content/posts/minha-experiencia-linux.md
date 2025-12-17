@@ -4,7 +4,7 @@ title: Minha Experiência Linux
 layout: tech
 description: Como está minha experiência usando Linux há mais de 6 meses...
 tags: ["linux"]
-draft: true
+draft: false
 math: false
 mermaid: false
 topics: ['tech']

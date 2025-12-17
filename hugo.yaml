@@ -13,7 +13,6 @@ taxonomies:
   topic: topics
 
 params:
-
   env: production
   title: "Cristianism0"
   description: "Blog Pessoal"

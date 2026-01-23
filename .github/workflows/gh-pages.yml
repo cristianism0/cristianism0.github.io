@@ -59,7 +59,7 @@ jobs:
       # ADD on run if you want to keep true draft files on deploy: --buildDrafts before --gc
         run: |
           hugo \
-            --gc \
+            --buildDrafts --gc \
             --baseURL ${{ steps.pages.outputs.base_url }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

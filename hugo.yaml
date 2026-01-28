@@ -58,7 +58,7 @@ params:
   profileMode:
     enabled: true
     title: "Cristianism0"
-    subtitle: "Blog pessoal para postar conteúdos de tecnologia, filosofia, ou ... o que eu quiser :)" 
+    subtitle: "Blog pessoal para postar conteúdos de tecnologia, filosofia e outros tópicos." 
 
 
     imageUrl: "img/avatar/pfp.jpg"
@@ -72,12 +72,6 @@ params:
 
       - name: Arquivo
         url: archives
-
-      - name: Tech
-        url: topics/tech
-
-      - name: Random
-        url: topics/random
 
       - name: Tags
         url: tags
@@ -112,32 +106,18 @@ outputs:
     - RSS
     - JSON 
 
+#Buttons on the bar
 menu:
   main:
 
-    #- identifier: home
-    #  name: Início
-    #  url: /
-    #  weight: 1
-
-    #- identifier: posts
-    # name: Posts
-    # url: /posts/
-    # weight: 2
+    - identifier: home
+      name: Início
+      url: /
+      weight: -1
 
     - identifier: archives
       name: Arquivo
       url: /archives/
-      weight: 1 
-
-    - identifier: topic_tech
-      name: Tech 
-      url: topics/tech
-      weight: 2
-
-    - identifier: topic_random
-      name: Random
-      url: topics/random
       weight: 2
 
     - identifier: search
@@ -148,12 +128,12 @@ menu:
     - identifier: tags
       name: Tags
       url: /tags/
-      weight: 4 
+      weight: 10
 
     - identifier: about
       name: Sobre
       url: /about/
-      weight: 10
+      weight: 0
 
 markup:
   goldmark:

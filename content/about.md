@@ -7,9 +7,6 @@ showtoc: false
 TocOpen: false
 UseHugoToc: false
 disableShare: true
-disableHLJS: true
-hideSummary: true
-searchHidden: true
 ShowReadingTime: false
 ShowBreadCrumbs: false
 ShowPostNavLinks: true

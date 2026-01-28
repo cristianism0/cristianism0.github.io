@@ -4,7 +4,6 @@ title: O Absurdismo em O Sétimo Selo
 layout: random
 description: Uma análise do filme O Sétimo Selo sob um olhar da filosofia absurdista.
 tags: ['cinema', 'filosofia', 'literatura']
-topics: ['random']
 draft: false
 math: false
 mermaid: false

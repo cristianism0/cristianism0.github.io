@@ -7,7 +7,6 @@ tags: ["linux"]
 draft: false
 math: false
 mermaid: false
-topics: ['tech']
 ---
 ## Minha experiência com Linux
 Há pouco mais de 6 meses tenho utilizado distribuições Linux como boot principal no meu notebook. Tomei essa decisão com pouco tempo de uso com o [Linux Mint](https://linuxmint.com/) em *dual boot* com o Windows. O Mint se tornou muito mais agravável para mim por ser mais limpo, comecei a achar o Windows muito *sobrecarregado*.

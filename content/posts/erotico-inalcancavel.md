@@ -7,7 +7,6 @@ math: false
 mermaid: false
 draft: false
 description: "Até onde pode ir as paixões dos corpos? A morte é uma solução para obssessão?"
-topics: ['random']
 ---
 
 # *Wuthering Heights* e As Virgens Suicidas - O Erótico Inalcançável

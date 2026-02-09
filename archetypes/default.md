@@ -1,7 +1,7 @@
 ---
 date: '{{ .Date }}'
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
-layout: random
+layout: default
 description: ""
 tags: []
 draft: true

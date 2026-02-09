@@ -1,7 +1,7 @@
 ---
 title: "Ghost in the Shell e Blade Runner - O Absurdo da Identidade"
 date: 2025-09-25
-layout: random 
+layout: default
 tags: ["estudo", "literatura", "filosofia", "cinema"]
 math: false
 mermaid: false
@@ -30,8 +30,6 @@ Em ambos os filmes, somos introduzidos em um mundo com características japonesa
 
 ## Revisitando as Obras: Ghost in the Shell e Blade Runner (2049)
 
-<small>*contém spoilers*</small>
-
 ### Ghost in the Shell
 
 Em Ghost in the Shell temos um mundo *cyberpunk* divido em seções
@@ -51,7 +49,7 @@ Esse é o ponto alto do filme. Sua auto classificação é contestada pelo Minis
 >*Puppet Master*: Com base nesse argumento, digo que seu **DNA também é apenas um programa auto-preservativo.**
 
 Após terminar essa cena, o corpo do *Puppet Master* é roubado para ser destruído porém é perseguido e interceptado pela Kusanagi. O objetivo do Puppet Master se torna então se fundir com a Kusanagi. O mesmo chama esse ato ainda de **procriar** visto que, sendo criado num "mar infinito" de informação sua fusão com a Kusanagi, seria um projeto **melhorado** e não uma simples imagem.
-### Blade Runner 
+### Blade Runner
 
 A abordagem que quero trazer nesse post são os filmes do Blade Runner, embora o livro *[Androids Sonham com Ovelhas Elétricas?](https://pt.wikipedia.org/wiki/Do_Androids_Dream_of_Electric_Sheep%3F)* tenha sido a base para o roteiro do filme de 1982, acho que o filme consegue aprofundar mais no tema que quero apresentar.
 No primeiro filme acompanhamos Deckard, um *Blade Runner *aposentado que é chamado novamente para **aposentar (matar)** 4 androides (chamados de replicantes) que fugiram de Marte. O mundo de Blade Runner está muito de acordo com a estética do *cyberpunk* citada no início já que o filme foi inspiração para a definição da estética.
@@ -75,12 +73,13 @@ All those moments will be lost in time, like **tears in rain.**
 
 Após essa cena incrível, Deckard se recupera e volta para casa e foge com a Rachel, afinal,
 >It's too bad she won't live! But then again, **who does?**
-### Blade Runner 2049 - Complemento 
+
+### Blade Runner 2049 - Complemento
 
 Blade Runner 2049 se passa 30 anos após a trama principal e acompanhamos K, um Blade Runner replicante. Aqui os tópicos de memória, identidade e esperança passados no primeiro filme são aprofundados, uma das poucas continuações que melhoraram a trama do filme principal *(na minha opinião)*. K possui uma esposa virtual, um holograma e é a mais próxima a ele. A trama começa a mudar quando ele é requisitado a **aposentar um replicante de modelo anterior**, mas ao chegar lá, se depara com o mesmo *plantando e cozinhando com alho*, sem sentido visto que replicantes não conseguem sentir sabor. Além disso, perto da caça ele encontra indícios de um **bebê**, possivelmente de um **replicante**.
 Esses casos acabam gerando um impacto em K visto que algumas memórias implantadas nele coincidem com detalhes desse bebê, e surge uma dúvida: **"Será que eu sou filho de alguém?"**, ser filho, traria para ele uma identidade além de uma máquina, suas memórias seriam portanto, suas de fato. Por motivos de extensão, não irei revisitar todo o filme, acho que apenas com essas características consigo capturar o que quero dele.
 
-## Discussão: O Absurdo da Identidade 
+## Discussão: O Absurdo da Identidade
 
 A discussão central que quero trazer com esses filmes são a da **identidade**, mais especificamente, a identidade no estado **absurdo**.
 O absurdo, no sentido filosófico está na total **ausência de sentido ou lógica**, para Camus, o absurdo vai além: É a busca por significado e o silêncio indiferente do mundo.

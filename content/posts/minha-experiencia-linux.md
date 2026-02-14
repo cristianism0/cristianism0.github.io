@@ -2,7 +2,7 @@
 date: 2025-12-10
 title: Minha Experiência Linux
 layout: default
-description: Como está minha experiência usando Linux há mais de 6 meses...
+summary: Como está minha experiência usando Linux há mais de 6 meses...
 tags: ["linux"]
 draft: false
 math: false

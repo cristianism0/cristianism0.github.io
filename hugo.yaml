@@ -29,6 +29,7 @@ params:
   ShowCodeCopyButtons: true
   ShowRssButtonInSectionTermList: true
 
+
   UseHugoToc: true
   TocOpen: false
   ShowToc: true
@@ -56,12 +57,12 @@ params:
     iconHeight: 35
     
   homeInfoParams:
-    Title: Olá
-    Content: Seja bem vindo(a) ao meu blog pessoal. Aqui poderá encontrar
-             conteúdos de tecnologia, filosofia e outros tópicos. 
+    Title: "Olá! 🐧" 
+    Content: "Seja bem vindo(a) ao meu blog pessoal! Aqui poderá encontrar
+             conteúdos de tecnologia, filosofia e análise de filmes e obras literárias."
 
   profileMode:
-    enabled: true
+    enabled: false
     title: "Cristianism0"
     subtitle: "Blog pessoal para postar conteúdos de tecnologia, filosofia e outros tópicos." 
 
@@ -82,12 +83,17 @@ params:
         url: tags
 
   socialIcons:
-    - name: github
+    - name: "github"
       title: Acompanhe meu Github
       url: "https://github.com/cristianism0"
-    - name: letterboxd                                                                                                                                                                                                                                                                                                
+      
+    - name: "letterboxd"                                                                                                                                                                                                                                                                                        
       title: Acompanhe meu Letterboxd
       url: "https://letterboxd.com/cristianism0/"
+      
+    - name: "twitter"
+      title: Acompanhe meu Twitter
+      url: "https://x.com/dracutx86_64"
 
   editPost:
     URL: "https://github.com/cristianism0/cristianism0.github.io/tree/main/content"

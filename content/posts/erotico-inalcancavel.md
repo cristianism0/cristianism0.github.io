@@ -2,7 +2,7 @@
 date: 2025-10-21
 title: Wuthering Heights e As Virgens Suicidas - O Erótico Inalcançável
 layout: default 
-description: "Até onde pode ir as paixões dos corpos? A morte é uma solução para obssessão?"
+summary: "Até onde pode ir as paixões dos corpos? A morte é uma solução para obssessão?"
 tags: ["estudo", "literatura", "filosofia", "cinema"]
 draft: false
 math: false

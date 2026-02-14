@@ -54,6 +54,11 @@ params:
     text: "Início"
     icon: favicon/apple-touch-icon.png
     iconHeight: 35
+    
+  homeInfoParams:
+    Title: Olá
+    Content: Seja bem vindo(a) ao meu blog pessoal. Aqui poderá encontrar
+             conteúdos de tecnologia, filosofia e outros tópicos. 
 
   profileMode:
     enabled: true

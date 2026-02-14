@@ -1,22 +1,22 @@
 ---
 date: 2026-01-23
 title: O Absurdismo em O Sétimo Selo
-layout: random
+layout: default
 description: Uma análise do filme O Sétimo Selo sob um olhar da filosofia absurdista.
 tags: ['cinema', 'filosofia', 'literatura']
 draft: false
 math: false
 mermaid: false
 ---
-# O Absurdismo em O Sétimo Selo
 
+# O Absurdismo em O Sétimo Selo
 ## Motivação e Introdução
 
-Desde o meu ensino médio, criei uma inclinação para a área de humanas, na qual comecei a ter contato com obras de cunho filosófico. O primeiro livro que li foi [O Príncipe](https://pt.wikipedia.org/wiki/O_Pr%C3%ADncipe) de [Maquiavel](https://pt.wikipedia.org/wiki/Nicolau_Maquiavel). Não tardei muito a comprar meu primeiro livro de [Nietzsche](https://pt.wikipedia.org/wiki/Friedrich_Nietzsche), a escolha foi [O Anticristo](https://pt.wikipedia.org/wiki/O_Anticristo). Com isso, se iniciou um gosto que cultivo até hoje.
+Desde o meu ensino médio, criei uma inclinação para a área de humanas, na qual comecei a ter contato com obras de cunho filosófico. O primeiro livro que li foi [O Príncipe](https://pt.wikipedia.org/wiki/O_Pr%C3%ADncipe) de [Maquiavel](https://pt.wikipedia.org/wiki/Nicolau_Maquiavel). Não tardei muito a comprar meu primeiro livro de [Nietzsche](https://pt.wikipedia.org/wiki/Friedrich_Nietzsche), a escolha foi [O Anticristo](https://pt.wikipedia.org/wiki/O_Anticristo). Com isso, iniciou-se um gosto que cultivo até hoje.
 
 Durante esta jornada, é comum encontrar diversos tipos de *filosofias de vida* - estoicismo, niilismo, existencialismo e epicurismo, por exemplo - que são desenvolvidas e fazem parte do trabalho de um filósofo ou vários. Dentre essas, consegui estabelecer uma ligação muito coerente com uma delas, o [Absurdismo](https://pt.wikipedia.org/wiki/Absurdismo). A primeira obra essencialmente absurdista com a qual tive contato foi [O Estrangeiro](https://pt.wikipedia.org/wiki/O_Estrangeiro_(livro)) de [Albert Camus](https://pt.wikipedia.org/wiki/Albert_Camus). Esta é, de longe, a filosofia de vida - em sentido completo - que me atraiu *(à exceção de Nietzsche)*.
 
-Em paralelo, também comecei a assistir alguns filmes mais clássicos de diretores renomados como [Kurosawa](https://pt.wikipedia.org/wiki/Akira_Kurosawa) e [Ingmar Bergman](https://pt.wikipedia.org/wiki/Ingmar_Bergman). O filme [O Sétimo Selo](https://pt.wikipedia.org/wiki/O_S%C3%A9timo_Selo),de autoria do Bergman, será explorado nesse post sob uma visão absurdista.
+Em paralelo, também comecei a assistir a alguns filmes mais clássicos de diretores renomados como [Kurosawa](https://pt.wikipedia.org/wiki/Akira_Kurosawa) e [Ingmar Bergman](https://pt.wikipedia.org/wiki/Ingmar_Bergman). O filme [O Sétimo Selo](https://pt.wikipedia.org/wiki/O_S%C3%A9timo_Selo),de autoria do Bergman, será explorado nesse post sob uma visão absurdista.
 
 Ou seja, a principal motivação desse texto é um **exercício**. Explorar uma visão filosófica que me agrada em um filme que me agradou. Uma excelente combinação para estudar, diga-se de passagem.
 
@@ -29,7 +29,7 @@ O [existencialismo](https://pt.wikipedia.org/wiki/Existencialismo) é um grupo d
 
 O pensamento de Kierkegaard era centrado na **ética cristã**, o **homem era posto em contraste com o Deus Infinito e Eterno** e, portanto, boa parte de sua obra recai nas escolhas de um homem cristão. O sentido do homem para Kierkegaard está na abordagem da realidade única, o homem sendo seu **único indivíduo**. Deus é então, seu **único e mais próximo amigo**.
 
-Em contrapartida, Sartre adota um *existencialismo ateu*, no qual, desconstrói a imagem de Deus para deixar o homem totalmente **livre**, fazendo jus a sua tão aclamada frase: *"o homem está condenado a estar livre." (O existencialismo é um humanismo)*. 
+Em contrapartida, Sartre adota um *existencialismo ateu*, no qual, desconstrói a imagem de Deus para deixar o homem totalmente **livre**, fazendo jus à sua tão aclamada frase: *"o homem está condenado a estar livre." (O existencialismo é um humanismo)*. 
 
 > "[...] já que eliminamos Deus Nosso Senhor, alguém terá de inventar os valores."
 > 
@@ -45,7 +45,7 @@ Para Sartre, o seu pensamento é mais coerente, pois, se Deus não existe:
 >
 >Jean-Paul Sartre, O existencialismo é um humanismo (1946).
 
-A real problemática dessa total liberdade nasce na angústia ou *náusea*[^1] de estar frente à liberdade. Sua existência pode se tornar um fardo e gerar tentativas para escapar. Um deles, Nietzsche classifica como ***decadentes***[^2], os quais o indivíduo se *suprime (castra)* usando a própria razão ou alguma crença que exerça essa supressão (*cristianismo*) levando-os à uma **negação da vida** no *aqui* em prol de uma outra no além. Uma outra é o próprio absurdismo.
+A real problemática dessa total liberdade nasce na angústia ou *náusea*[^1] de estar frente à liberdade. Sua existência pode se tornar um fardo e gerar tentativas para escapar. Um deles, Nietzsche classifica como ***decadentes***[^2], os quais o indivíduo se *suprime (castra)* usando a própria razão ou alguma crença que exerça essa supressão (*cristianismo*) levando-os a uma **negação da vida** no *aqui* em prol de uma outra no além. Uma outra é o próprio absurdismo.
 ###  O nascimento do absurdo
 
 O absurdo como conceito está presente desde as obras de Kierkegaard, mas é Camus que irá se aprofundar nesse conceito e elaborar uma teoria mais aprofundada sobre. Em sua obra *O Mito de Sísifo*, Camus se aprofunda no tema absurdo abordando sua presença **dentro de vida cotidiana do homem moderno**. 
@@ -70,13 +70,13 @@ Portanto, o nascimento do absurdo não nasce do homem ou do mundo, mas sim, de s
 
 Aqui entra o principal contraste com o existencialismo, principalmente o de Kierkegaard. **Todos os pontos citados acima são excluídos a partir do momento que há a existência de um Deus todo poderoso**[^3]. Destrinchamos:
 
- 1. A falta de esperança é dada no momento que primeiro sentimos o absurdo, não há outro futuro. Para Nietzsche, **a esperança** é um dos pilares de uma vida **decadente**, pois, sua vivência **impede o confronto com a realidade atual.** A existência de Deus - limitarei-me ao cristão - é imbuída de um reino escatológico, o céu[^4]. Se não o céu, uma resolução de sua problemática em troca de devoção, por exemplo. Em termos sociológicos, a esperança é construída e internalizada como uma ferramenta de manutenção social da realidade. Sua replicação se origina de estruturas de plausabilidade[^5], por exemplo, religiões e grupos sociais. Portanto, grupos sociais como religiões e/ou decadentes, recaem numa atmosfera não absurda.
+ 1. A falta de esperança é dada no momento que primeiro sentimos o absurdo, não há outro futuro. Para Nietzsche, **a esperança** é um dos pilares de uma vida **decadente**, pois, sua vivência **impede o confronto com a realidade atual.** A existência de Deus - me limitarei ao cristão - é imbuída de um reino escatológico, o céu[^4]. Se não o céu, uma resolução de sua problemática em troca de devoção, por exemplo. Em termos sociológicos, a esperança é construída e internalizada como uma ferramenta de manutenção social da realidade. Sua replicação se origina de estruturas de plausibilidade[^5], por exemplo, religiões e grupos sociais. Portanto, grupos sociais como religiões e/ou decadentes, recaem numa atmosfera não absurda.
  2. A recusa absurdista consiste em não estar satisfeito com o modo que vive, não estar satisfeito com a inquietude do mundo. Novamente, é reforçada dentro do cristianismo, uma crença de desapego do mundo terreno pois há outro melhor: "*Mas busquem primeiro o Reino de Deus e a sua justiça, e todas essas coisas lhes serão acrescentadas.*" (Mateus 6:33). Tal desapego, livra o indivíduo desse confronto com a realidade. Novamente, o absurdo se dá pela comparação. Caso um dos elementos se afaste, é destruído.
- 3. A insatisfação consciente é manter o pulso mesmo estando vivendo o absurdo, olhá-lo mesmo com repulsa. Você não precisa se dispôr a uma vida se há um Deus que possa salvá-lo (pontos 1 e 2). Manter-se alheio a vida o afasta da comparação absurda e o enfraquece. Evita a náusea e o indivíduo para de ser o centro. Sua essência é perdida. A indiferença está em experimentar a vida mesmo sabendo de sua natureza, e não tentar resolvê-la.
+ 3. A insatisfação consciente é manter o pulso mesmo estando vivendo o absurdo, olhá-lo mesmo com repulsa. Você não precisa se dispor a uma vida se há um Deus que possa salvá-lo (pontos 1 e 2). Manter-se alheio a vida o afasta da comparação absurda e o enfraquece. Evita a náusea e o indivíduo para de ser o centro. Sua essência é perdida. A indiferença está em experimentar a vida mesmo sabendo de sua natureza, e não tentar resolvê-la.
 
 Portanto, o mundo absurdo de Camus é um **mundo sem Deus**, "*um mundo de homens que pensam claro e não esperam mais*."
 
-De modo geral, podemos extrair do absurdismo três características motrizes: "*[...] minha revolva, minha liberdade e minha paixão*" (Albert Camus, 1942). Em um mundo estéril, sua revolta é seu impulso, sua liberdade é seu movimento e sua paixão é sua vida. A única coisa que resta para o homem absurdo é viver e experimentar a vida como **acha que deve ser experimentada**.
+De modo geral, podemos extrair do absurdismo três características motrizes: "*[...] minha revolta, minha liberdade e minha paixão*" (Albert Camus, 1942). Em um mundo estéril, sua revolta é seu impulso, sua liberdade é seu movimento e sua paixão é sua vida. A única coisa que resta para o homem absurdo é viver e experimentar a vida como **acha que deve ser experimentada**.
 
 O homem cotidiano vive dessa maneira, *"ciente de que não há causas vitoriosas, tomo gosto pelas causas perdidas [...]"* (Albert Camus, 1942). Sua rotina é vivida da mesma forma todos os dias, suas pequenas vitórias aproveitadas e sempre a certeza - embora que às vezes assombrosa - de sua finitude.
 
@@ -114,13 +114,13 @@ Na obra *O Estrangeiro*, Camus descreve embora sem aprofundar muito na sua filos
 
 Essa frase é dita pelo Meursault no inicio do livro e já nos traz um certo desconforto. A morte de algum parente é de fato um momento muito frágil, ainda mais, da própria mãe. Para Meursault, soa apenas como um evento natural, não importante suficiente para saber a data correta.
 
-Aqui já nos salta um dos pilares do existencialismo/humanismo, **o homem como centro principal de sua realidade**. A maneira que Meursault vive é extremamente desapegada, o esteriótipo do homem perfeitamente absurdo.
+Aqui já nos salta um dos pilares do existencialismo/humanismo, **o homem como centro principal de sua realidade**. A maneira que Meursault vive é extremamente desapegada, o estereótipo do homem perfeitamente absurdo.
 
 Meursault é um observador, descreve sem filtros seus sentimentos, detalhes que para ele são importante e por isso o livro nos traz uma sensação de deslocamento. Muitos são frios e outros puramente cotidianos. **Eventos que ultrapassem sua individualidade são descritos de maneira simplória**, Meursault nem ao menos faz questão deles - seu casamento, por exemplo.
 
 Outro ponto forte é o assassinato. Em um dia na praia, Meursault atira em um árabe pois segundo ele, "*estava muito calor*", o tiro, a primeiro momento, destruiu o silêncio da praia. Meursault é acusado e condenado e aqui nasce talvez um dos momentos mais ricos do livro pois nos fornece o contraste.
 
-Na prisão, Meursault começa a escrever (o livro que lemos) e expressa o que sentida e sua rotina.
+Na prisão, Meursault começa a escrever (o livro que lemos) e expressa o que sentia e sua rotina.
 
 > "No início da minha detenção, no entanto, o mais difícil é que tinha pensamentos de homem livre."
 > 
@@ -136,7 +136,7 @@ Essa resposta nos é dada por um diálogo com um guarda, que após falar sobre a
 
 Meursault reduz essas dificuldades em "*estes aborrecimentos*" até que tudo que se sobra é um momento em que se deve matar o tempo, onde ele preenche com *nostalgia*[^6]. Para ele, relembrar os tempos onde tinha liberdade servia como um passa tempo. Seu tempo na cadeia é passado por ele como uma tarefa, aceita e vivida.
 
-Aqui também, muito da moral - especialmente cristã - é usada como arma contra o Meursault. O seu crime vira apenas fundo, sua frieza no funeral de sua mãe, entrar em um relacionamento e assistir um filme de comédia após o enterrido entram em primeiro plano. Aqui entra um **contraste entre a filosofia individualista e a moral cristã**. Embora Camus não entre nesse ramo, Nietzsche o fez, em seu livro *O Anticristo*, Nietzsche reduz a moral cristã em uma moral de ressentimento, uma moral de escravo[^7]. Meursault não vive dessa forma, diferentemente dos seus carrascos. Para eles, Meursault devia estar recolhido, sua superação ou comportamento individual era inaceitável.
+Aqui também, muito da moral - especialmente cristã - é usada como arma contra o Meursault. O seu crime vira apenas fundo, sua frieza no funeral de sua mãe, entrar em um relacionamento e assistir a um filme de comédia após o enterro entram em primeiro plano. Aqui entra um **contraste entre a filosofia individualista e a moral cristã**. Embora Camus não entre nesse ramo, Nietzsche o fez, em seu livro *O Anticristo*, Nietzsche reduz a moral cristã em uma moral de ressentimento, uma moral de escravo[^7]. Meursault não vive dessa forma, diferentemente dos seus carrascos. Para eles, Meursault devia estar recolhido, sua superação ou comportamento individual era inaceitável.
 
 Após a condenação, Meursault é visitado por um padre, personagem que irá revisitar as questões de morte e ajuda (abordadas nos 3 pontos do absurdismo). Ele as nega, não precisa de ajuda e a morte virá e será recebida como ele está. Não há futuro, sabe que irá morrer, mas não agora.
 
@@ -146,7 +146,7 @@ Ao fim, perto de sua execução Meursault renasce, ele "resolve" o absurdo de um
 > 
 > Albert Camus, O Estrangeiro (1942)
 
-Em  *A Peste* , acompanhamos sob a visão de um narrador anonimo um surto de peste na cidade de Orã, Argélia. O alvo aqui não se trata de um homem absurdo como Meursault, mas de um **homem mais humano**. O ponto está não em mostrar o comportamento absurdo máximo, mas o homem cotidiano de frente de um problema que não se importa com ele.
+Em  *A Peste* , acompanhamos sob a visão de um narrador anônimo um surto de peste na cidade de Orã, Argélia. O alvo aqui não se trata de um homem absurdo como Meursault, mas de um **homem mais humano**. O ponto está não em mostrar o comportamento absurdo máximo, mas o homem cotidiano de frente de um problema que não se importa com ele.
 
 O romance se desenrola na criação de um grupo de médicos em combate a doença. Cada um possui uma história por trás que os movimenta, os dá impulso para lutar. Rieux, que mais tarde descobrimos ser o narrador, está nesse projeto.
 

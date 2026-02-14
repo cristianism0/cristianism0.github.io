@@ -1,13 +1,14 @@
 ---
-title: "Ghost in the Shell e Blade Runner - O Absurdo da Identidade"
 date: 2025-09-25
+title: "Ghost in the Shell e Blade Runner - O Absurdo da Identidade"
 layout: default
+description: "Uma análise sobre um dos temas centrais das obras: Blade Runner e Ghost in the Shell - a identidade."
 tags: ["estudo", "literatura", "filosofia", "cinema"]
+draft: false
 math: false
 mermaid: false
-draft: false
-description: "Uma análise sobre um dos temas centrais das obras: Blade Runner e Ghost in the Shell - a identidade."
 ---
+
 # Ghost in the Shell e Blade Runner - O Absurdo da Identidade
 
 ## Cyberpunk: Movimento na Arte e Estética
@@ -31,14 +32,13 @@ Em ambos os filmes, somos introduzidos em um mundo com características japonesa
 ## Revisitando as Obras: Ghost in the Shell e Blade Runner (2049)
 
 ### Ghost in the Shell
-
 Em Ghost in the Shell temos um mundo *cyberpunk* divido em seções
 e acompanhamos uma major da polícia da Seção 9: Motoko Kusanagi. Motoko assim como
 a maior parte das pessoas da seção é um **cibórgue**, seu corpo é composto
 por peças eletrônicas que aumentam sua capacidade cognitiva e física.
-Nessa trama, somos introduzidos a um criminoso que está sendo perseguido, chamado: *Puppet Master*, um hacker que conseguem invadir cérebros, implantar memórias e gerenciar comportamentos.
+Nessa trama, somos introduzidos a um criminoso que está sendo perseguido, chamado: *Puppet Master*, um hacker que consegue invadir cérebros, implantar memórias e gerenciar comportamentos.
 
-Redes de informação se tornaram necessárias para a vida e todos são conectados através delas. Se tornou possível se comunicar com outras pessoas na mesma rede diretamente em seus próprios cérebros. O *Puppet Master* se tornou o perigo pois assim, poderá ter acesso a quase todos. Kusanagi, mesmo sendo cibernética, mantém em sí questionamentos sobre a sua vida, se ela de fato tem uma mesmo sendo uma ciborgue.
+Redes de informação se tornaram necessárias para a vida e todos são conectados através delas. Se tornou possível se comunicar com outras pessoas na mesma rede diretamente em seus próprios cérebros. O *Puppet Master* se tornou o perigo pois assim, poderá ter acesso a quase todos. Kusanagi, mesmo sendo cibernética, mantém em si questionamentos sobre a sua vida, se ela de fato tem uma mesmo sendo uma ciborgue.
 
 A trama ganha maior profundidade ao sabermos a identidade do *Puppet Master*.
 Se trata de uma **consciência artificial**, uma IA que atingiu a singularidade.
@@ -49,11 +49,11 @@ Esse é o ponto alto do filme. Sua auto classificação é contestada pelo Minis
 >*Puppet Master*: Com base nesse argumento, digo que seu **DNA também é apenas um programa auto-preservativo.**
 
 Após terminar essa cena, o corpo do *Puppet Master* é roubado para ser destruído porém é perseguido e interceptado pela Kusanagi. O objetivo do Puppet Master se torna então se fundir com a Kusanagi. O mesmo chama esse ato ainda de **procriar** visto que, sendo criado num "mar infinito" de informação sua fusão com a Kusanagi, seria um projeto **melhorado** e não uma simples imagem.
-### Blade Runner
 
+### Blade Runner
 A abordagem que quero trazer nesse post são os filmes do Blade Runner, embora o livro *[Androids Sonham com Ovelhas Elétricas?](https://pt.wikipedia.org/wiki/Do_Androids_Dream_of_Electric_Sheep%3F)* tenha sido a base para o roteiro do filme de 1982, acho que o filme consegue aprofundar mais no tema que quero apresentar.
-No primeiro filme acompanhamos Deckard, um *Blade Runner *aposentado que é chamado novamente para **aposentar (matar)** 4 androides (chamados de replicantes) que fugiram de Marte. O mundo de Blade Runner está muito de acordo com a estética do *cyberpunk* citada no início já que o filme foi inspiração para a definição da estética.
-Durante as investigações e eliminação dos replicantes, Deckard tem diversos episódios de questionamentos e choques desde o primeiro momento. Essas expressões fica sub-entendido uma relutância do Deckard sobre esses atos, os replicantes, ademais, são cópias **extremamente humanas**, segundo lema da *BigCorp* do filme:
+No primeiro filme acompanhamos Deckard, um *Blade Runner* aposentado que é chamado novamente para **aposentar (matar)** 4 androides (chamados de replicantes) que fugiram de Marte. O mundo de Blade Runner está muito de acordo com a estética do *cyberpunk* citada no início já que o filme foi inspiração para a definição da estética.
+Durante as investigações e eliminação dos replicantes, Deckard tem diversos episódios de questionamentos e choques desde o primeiro momento. Essas expressões fica subentendido uma relutância do Deckard sobre esses atos, os replicantes, ademais, são cópias **extremamente humanas**, segundo lema da *BigCorp* do filme:
 
 >"More human than human"
 
@@ -99,3 +99,12 @@ Esse contato com subjetiva desperta neles uma chama de **identidade**, fraca, of
 A subjetividade sendo uma capacidade qualitativa baseada em **emoções** atingidas por máquinas, destrói o conceito básico de **homem** como ser subjetivo. Destruída o conceito de **homem** como único ser subjetivo, máquinas podem se confundir novamente com o homem não apenas objetivadamente como nesses casos, mas, **subjetivamente**.
 Meu argumento até agora se voltou apenas para a formação de uma subjetividade das máquinas, mas ainda não voltei-me explicitamente para o **absurdo da identidade**.
 Veja que nos casos da: Kusanagi, Puppet Master, Replicantes; eles possuem um **eco** de identidade, baseada numa **subjetividade não definida**, entretanto, ela não é passível de ser descartada, ela não está de fato ligada com a realidade e não é possível estabelecer um vínculo de **interiorização** real. Isso forma um paradoxo entre a existência e a não existência da identidade, um absurdo por excelência.
+
+## Bibliografia
+- BERGER, Peter L.; LUCKMANN, Thomas. A Construção Social da Realidade. 1966
+- CAMUS, Albert. O Mito de Sísifo. 1942
+- DICK, Philip K. Androides Sonham com Ovelhas Elétricas?. 1968
+- GIBSON, William. Neuromancer. 1984
+- OSHII, Mamoru. Ghost in the Shell. 1995
+- SCOTT, Ridley. Blade Runner. 1982
+- VILLENEUVE, Denis. Blade Runner 2049. 2017

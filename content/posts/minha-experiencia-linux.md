@@ -1,14 +1,15 @@
 ---
-date: 2025-12-10T18:38:34-03:00
+date: 2025-12-10
 title: Minha Experiência Linux
-layout: tech
+layout: default
 description: Como está minha experiência usando Linux há mais de 6 meses...
 tags: ["linux"]
 draft: false
 math: false
 mermaid: false
 ---
-## Minha experiência com Linux
+
+# Minha experiência com Linux
 Há pouco mais de 6 meses tenho utilizado distribuições Linux como boot principal no meu notebook. Tomei essa decisão com pouco tempo de uso com o [Linux Mint](https://linuxmint.com/) em *dual boot* com o Windows. O Mint se tornou muito mais agravável para mim por ser mais limpo, comecei a achar o Windows muito *sobrecarregado*.
 
 Então, Mint foi meu primeiro contato com Linux. A interface Cinnamon é bem agradável porém sempre sentia que faltava alguma coisa. Então comecei com um **Distro Hopping** até me estabelecer de fato no *[Fedora Workstation](https://www.fedoraproject.org/)*. Até lá, passei pelos grandes **Debian e Arch**, mas sempre acabei voltando para o Fedora. 
@@ -17,7 +18,7 @@ O Fedora é uma distribuição completa. Embora você possa instalar tudo que pr
 
 Além disso, a minha saturação com IA's casou perfeitamente com o momento atual. Não concordo com as novas atribuições do Windows 11, **usar IA até um explorador de arquivos** é um pouco demais na minha opinião.
 
-### Uso do Terminal
+## Uso do Terminal
 Como alguém recém saído do Windows, o terminal era uma **mágica**. Como o Linux Mint era mais **amigável**, não tinha tanto contato com o terminal, apenas para:
 
 ```bash
@@ -30,13 +31,13 @@ O aprendizado é ganho através da experiência e nada melhor para ganhar experi
 
 Com o uso constante, o terminal acaba se tornando seu melhor amigo, mais confortável e mais sólido até mesmo que usar o CLI. Foi de fato uma experiência.
 
-### Distro Hopping
+## Distro Hopping
 
 Quando fazia mudanças de distribuição, tinha sempre um protocolo de instalação pós formatação. Como a experiência com o terminal te traz esse aprendizado prático, você aprenderá que também é mais prático ter seus arquivos e scripts salvos em algum repositório remoto.
 
 Normalmente, minhas configurações de IDE ficam salvas no meu *GitHub*, mas as configurações podem se estender ainda mais. Scripts Bash, Wallpapers, Softlinks podem ser enviados e automatizar mais ainda o set do seu setup em uma instalação fresh.
 
-#### Protocolo
+### Protocolo
 1. Configurar o GitHub (Git já vem instalado no Fedora);
 ```bash
 which git
@@ -78,7 +79,7 @@ hugo server
 ```
 *E terá que funcionar.*
 
-### Comunidade GNU e Open-Source
+## Comunidade GNU e Open-Source
 
 Esse tópico não necessariamente precisaria mudar para o Linux para se ter o contato, mas de fato, é mais fácil ter com o próprio Linux. 
 

@@ -141,10 +141,10 @@ menu:
       url: /tags/
       weight: 10
 
-    - identifier: about
-      name: Sobre
-      url: /about/
-      weight: 0
+    # - identifier: about
+    #   name: Sobre
+    #   url: /about/
+    #   weight: 0
 
 markup:
   goldmark:

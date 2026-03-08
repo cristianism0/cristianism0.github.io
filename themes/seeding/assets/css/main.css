@@ -244,8 +244,10 @@ body {
   color: var(--text-faint);
   margin-bottom: 0.4rem;
   display: flex;
-  gap: 0.8rem;
+  gap: 0.4rem;
+  row-gap: 0.3rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .post-item h2 {
@@ -314,6 +316,8 @@ body {
   letter-spacing: 0.07em;
   text-decoration: none;
   transition: background var(--transition);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .tag:hover {
@@ -1054,7 +1058,27 @@ kbd {
   }
 
   .site-nav {
-    padding: 0 1.2rem;
+    padding: 0 1rem;
+    height: auto;
+    min-height: 52px;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .nav-controls {
+    gap: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  .ctrl-btn {
+    font-size: 0.72rem;
+    padding: 0.22rem 0.4rem;
+  }
+
+  .divider-v {
+    margin: 0 0.1rem;
   }
 
   .article-header {
@@ -1074,6 +1098,7 @@ kbd {
     right: 1rem;
   }
 }
+
 
 @media (max-width: 480px) {
   [data-font-size="medium"] {

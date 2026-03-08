@@ -1,13 +1,16 @@
 ---
-date: 2025-12-10
 title: Minha Experiência Linux
-layout: default
-summary: Como está minha experiência usando Linux há mais de 6 meses...
-tags: ["linux"]
-draft: false
+date: 2025-12-10
+lastmod: 2025-12-10       
+description: "Como está minha experiência usando Linux há mais de 6 meses..."
+tags: ["linux", "computação"]
+categories: ["computação", "tecnologia"]
 math: false
-mermaid: false
+toc: true         
+noindex: false   
+draft: false
 ---
+
 
 # Minha experiência com Linux
 Há pouco mais de 6 meses tenho utilizado distribuições Linux como boot principal no meu notebook. Tomei essa decisão com pouco tempo de uso com o [Linux Mint](https://linuxmint.com/) em *dual boot* com o Windows. O Mint se tornou muito mais agravável para mim por ser mais limpo, comecei a achar o Windows muito *sobrecarregado*.

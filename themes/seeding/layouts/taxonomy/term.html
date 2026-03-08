@@ -1,0 +1,36 @@
+{{ define "main" }}
+
+<div class="list-header">
+  <div class="breadcrumbs" aria-label="Localização">
+    <a href="{{ .Site.BaseURL }}">Início</a>
+    <span class="bc-sep" aria-hidden="true">›</span>
+    <a href="{{ "/tags" | relURL }}">Tags</a>
+    <span class="bc-sep" aria-hidden="true">›</span>
+    <span aria-current="page">{{ .Title }}</span>
+  </div>
+  <h1>
+    <span class="tag-heading-label">tag:</span>
+    {{ .Title }}
+  </h1>
+  <p>{{ len .Pages }} {{ if eq (len .Pages) 1 }}artigo{{ else }}artigos{{ end }}</p>
+</div>
+
+<ul class="post-list" role="list">
+  {{ range .Pages.ByDate.Reverse }}
+  <li class="post-item">
+    <div class="post-item-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+      {{ if .ReadingTime }}<span>⏱ {{ .ReadingTime }} min</span>{{ end }}
+    </div>
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ with .Description }}
+      <p>{{ . }}</p>
+    {{ else }}
+      {{ with .Summary }}<p>{{ . | plainify | truncate 180 }}</p>{{ end }}
+    {{ end }}
+    <a href="{{ .Permalink }}" class="read-more">Ler artigo →</a>
+  </li>
+  {{ end }}
+</ul>
+
+{{ end }}

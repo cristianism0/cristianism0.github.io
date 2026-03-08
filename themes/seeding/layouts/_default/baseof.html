@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang | default "pt" }}"
+      data-theme="light"
+      data-font-size="medium">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+
+  <div id="reading-bar" aria-hidden="true"></div>
+
+  <nav class="site-nav" role="navigation" aria-label="Navegação principal">
+    <div class="nav-left">
+      <a href="{{ .Site.BaseURL }}" class="brand">{{ .Site.Title }}</a>
+
+      {{ if .Site.Menus.main }}
+      <ul class="nav-menu" role="list">
+        {{ range .Site.Menus.main }}
+        <li>
+          <a href="{{ .URL }}"
+             {{ if eq $.RelPermalink .URL }}aria-current="page"{{ end }}>
+            {{ .Name }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </div>
+
+    <div class="nav-controls" role="toolbar" aria-label="Controles de leitura">
+      <button class="ctrl-btn"        id="fs-small"  onclick="setFont('small')"  title="Fonte pequena" aria-label="Fonte pequena">A−</button>
+      <button class="ctrl-btn active" id="fs-medium" onclick="setFont('medium')" title="Fonte média"   aria-label="Fonte média">A</button>
+      <button class="ctrl-btn"        id="fs-large"  onclick="setFont('large')"  title="Fonte grande"  aria-label="Fonte grande">A+</button>
+      <div class="divider-v" aria-hidden="true"></div>
+      <button class="ctrl-btn active" id="th-light" onclick="setTheme('light')" title="Modo claro"  aria-label="Modo claro">☀︎</button>
+      <button class="ctrl-btn"        id="th-sepia" onclick="setTheme('sepia')" title="Modo sépia"  aria-label="Modo sépia">◐</button>
+      <button class="ctrl-btn"        id="th-dark"  onclick="setTheme('dark')"  title="Modo escuro" aria-label="Modo escuro">◑</button>
+    </div>
+  </nav>
+
+  <main class="page-wrapper" role="main" id="main-content">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-wrapper">
+      <span>{{ .Site.Title }}</span>
+      <span>·</span>
+      <a href="{{ "/tags" | relURL }}">Tags</a>
+      {{ with .Site.Params.social }}
+        {{ with .github }}<span>·</span><a href="https://github.com/{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
+        {{ with .mastodon }}<span>·</span><a href="{{ . }}" target="_blank" rel="noopener me">Mastodon</a>{{ end }}
+      {{ end }}
+      <span>·</span>
+      <a href="{{ "/index.xml" | relURL }}">RSS</a>
+    </div>
+  </footer>
+
+  <a href="#" id="back-top" title="Voltar ao topo" aria-label="Voltar ao topo">↑</a>
+
+  {{ partial "scripts.html" . }}
+</body>
+</html>

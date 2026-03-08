@@ -1,12 +1,14 @@
 ---
-date: 2025-09-25
 title: "Ghost in the Shell e Blade Runner - O Absurdo da Identidade"
-layout: default
-summary: "Uma análise sobre um dos temas centrais das obras: Blade Runner e Ghost in the Shell - a identidade."
-tags: ["estudo", "literatura", "filosofia", "cinema"]
-draft: false
+date: 2025-09-25
+lastmod: 2025-09-25         
+description: "Uma análise sobre um dos temas centrais das obras: Blade Runner e Ghost in the Shell - a identidade."
+tags: ["literatura", "filosofia", "cinema", "absurdismo"]
+categories: ["analise", "filosofia"]
 math: false
-mermaid: false
+toc: true         
+noindex: false   
+draft: false
 ---
 
 # Ghost in the Shell e Blade Runner - O Absurdo da Identidade

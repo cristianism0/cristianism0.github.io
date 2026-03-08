@@ -1,0 +1,105 @@
+<script>
+  function setTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    ['light','sepia','dark'].forEach(function(id) {
+      var el = document.getElementById('th-' + id);
+      if (el) el.classList.toggle('active', id === t);
+    });
+    localStorage.setItem('seeding-theme', t);
+  }
+
+  function setFont(s) {
+    document.documentElement.setAttribute('data-font-size', s);
+    ['small','medium','large'].forEach(function(id) {
+      var el = document.getElementById('fs-' + id);
+      if (el) el.classList.toggle('active', id === s);
+    });
+    localStorage.setItem('seeding-font', s);
+  }
+
+  (function() {
+    var t = localStorage.getItem('seeding-theme') || 'light';
+    var f = localStorage.getItem('seeding-font')  || 'medium';
+    setTheme(t);
+    setFont(f);
+  })();
+
+  var bar = document.getElementById('reading-bar');
+  if (bar) {
+    window.addEventListener('scroll', function() {
+      var h   = document.documentElement;
+      var pct = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+      bar.style.width = Math.min(pct, 100) + '%';
+    }, { passive: true });
+  }
+
+  var backTop = document.getElementById('back-top');
+  if (backTop) {
+    backTop.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    window.addEventListener('scroll', function() {
+      backTop.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+  }
+
+  function copyCode(btn) {
+    var pre = btn.closest('.code-wrap').querySelector('pre');
+    var text = pre ? pre.innerText : '';
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = 'copiado ✓';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.textContent = 'copiar';
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(function() {
+      btn.textContent = 'erro';
+    });
+  }
+
+  var langLabels = {
+    'python':'Python', 'py':'Python',
+    'bash':'Bash', 'sh':'Bash', 'shell':'Shell', 'zsh':'Zsh',
+    'rust':'Rust', 'rs':'Rust',
+    'c':'C', 'cpp':'C++', 'cc':'C++',
+    'js':'JavaScript', 'javascript':'JavaScript',
+    'ts':'TypeScript', 'typescript':'TypeScript',
+    'go':'Go', 'java':'Java', 'kotlin':'Kotlin',
+    'html':'HTML', 'css':'CSS', 'scss':'SCSS',
+    'yaml':'YAML', 'toml':'TOML', 'json':'JSON',
+    'sql':'SQL', 'r':'R', 'julia':'Julia',
+    'haskell':'Haskell', 'hs':'Haskell',
+    'latex':'LaTeX', 'tex':'LaTeX',
+    'markdown':'Markdown', 'md':'Markdown',
+    'dockerfile':'Dockerfile', 'makefile':'Makefile'
+  };
+
+  document.querySelectorAll('.article-body .highlight').forEach(function(block) {
+    var wrapper = document.createElement('div');
+    wrapper.className = 'code-wrap';
+
+    var lang = '';
+    var codeEl = block.querySelector('code');
+    if (codeEl && codeEl.className) {
+      var m = codeEl.className.match(/language-(\w+)/);
+      if (m) lang = m[1].toLowerCase();
+    }
+
+    if (lang) wrapper.setAttribute('data-lang', lang);
+
+    var label = langLabels[lang]
+      || (lang ? lang.charAt(0).toUpperCase() + lang.slice(1) : 'código');
+
+    var header = document.createElement('div');
+    header.className = 'code-header';
+    header.innerHTML =
+      '<span class="code-lang">' + label + '</span>' +
+      '<button class="copy-btn" onclick="copyCode(this)">copiar</button>';
+
+    block.parentNode.insertBefore(wrapper, block);
+    wrapper.appendChild(header);
+    wrapper.appendChild(block);
+  });
+</script>

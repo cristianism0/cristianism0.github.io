@@ -1,12 +1,14 @@
 ---
+title: "Wuthering Heights e As Virgens Suicidas - O Erótico Inalcançável"
 date: 2025-10-21
-title: Wuthering Heights e As Virgens Suicidas - O Erótico Inalcançável
-layout: default 
-summary: "Até onde pode ir as paixões dos corpos? A morte é uma solução para obssessão?"
-tags: ["estudo", "literatura", "filosofia", "cinema"]
-draft: false
+lastmod: 2025-10-21        
+description: "Até onde pode ir as paixões dos corpos? A morte é uma solução para obssessão?"
+tags: ["literatura", "filosofia", "cinema"]
+categories: ["analise", "filosofia"]
 math: false
-mermaid: false
+toc: true         
+noindex: false   
+draft: false
 ---
 
 # *Wuthering Heights* e As Virgens Suicidas - O Erótico Inalcançável

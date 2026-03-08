@@ -1,0 +1,57 @@
+{{ $src    := .Get "src" }}
+{{ $alt    := .Get "alt"     | default "" }}
+{{ $caption := .Get "caption" | default "" }}
+{{ $title  := .Get "title"   | default "" }}
+{{ $class  := .Get "class"   | default "" }}
+{{ $link   := .Get "link"    | default "" }}
+{{ $maxW   := .Get "width"   | default 1200 | int }}
+
+{{ $isExt := or (hasPrefix $src "http://") (hasPrefix $src "https://") }}
+{{ $isAbs := hasPrefix $src "/" }}
+
+{{/* Tentar encontrar a imagem no page bundle */}}
+{{ $img := "" }}
+{{ if and (not $isExt) (not $isAbs) }}
+  {{ $img = .Page.Resources.GetMatch $src }}
+{{ end }}
+
+{{ if $img }}
+  {{ $img = $img.Process "auto-orient" }}
+  {{/* Nunca aumentar além do tamanho original */}}
+  {{ $fullW := math.Min $img.Width $maxW | int }}
+  {{ $halfW := math.Min $img.Width (div $maxW 2) | int }}
+  {{ $processed := $img.Resize (printf "%dx webp q85" $fullW) }}
+  {{ $half := $img.Resize (printf "%dx webp q80" $halfW) }}
+
+  <figure{{ with $class }} class="{{ . }}"{{ end }}>
+    {{ with $link }}<a href="{{ . }}">{{ end }}
+    <img
+      src="{{ $processed.RelPermalink }}"
+      srcset="{{ $half.RelPermalink }} {{ $half.Width }}w, {{ $processed.RelPermalink }} {{ $processed.Width }}w"
+      sizes="(max-width: 640px) 100vw, {{ $processed.Width }}px"
+      width="{{ $processed.Width }}"
+      height="{{ $processed.Height }}"
+      alt="{{ $alt }}"
+      {{ with $title }}title="{{ . }}"{{ end }}
+      loading="lazy"
+      decoding="async"
+    />
+    {{ with $link }}</a>{{ end }}
+    {{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+  </figure>
+
+{{ else }}
+  {{/* Imagem externa ou de static/ — passar sem processamento */}}
+  <figure{{ with $class }} class="{{ . }}"{{ end }}>
+    {{ with $link }}<a href="{{ . }}">{{ end }}
+    <img
+      src="{{ $src }}"
+      alt="{{ $alt }}"
+      {{ with $title }}title="{{ . }}"{{ end }}
+      loading="lazy"
+      decoding="async"
+    />
+    {{ with $link }}</a>{{ end }}
+    {{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+  </figure>
+{{ end }}

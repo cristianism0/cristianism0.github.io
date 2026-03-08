@@ -1,0 +1,16 @@
+{{ if not .IsHome }}
+<nav class="breadcrumbs" aria-label="Localização">
+  <a href="{{ .Site.BaseURL }}">Início</a>
+
+  {{ $sections := .CurrentSection }}
+  {{ if not $sections.IsHome }}
+    <span class="bc-sep" aria-hidden="true">›</span>
+    <a href="{{ $sections.Permalink }}">{{ $sections.Title }}</a>
+  {{ end }}
+
+  {{ if not .IsSection }}
+    <span class="bc-sep" aria-hidden="true">›</span>
+    <span aria-current="page">{{ .Title }}</span>
+  {{ end }}
+</nav>
+{{ end }}

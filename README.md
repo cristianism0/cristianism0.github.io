@@ -14,17 +14,14 @@ hugo version   # => v0.112.4
 ```
 
 ```bash
-git clone --recursive git@github.com:cristianism0/cristianism0.github.io.git
+git clone git@github.com:cristianism0/cristianism0.github.io.git
 ```
 
-Para atualizar o submodulo:
-```bash
-git submodule update --remote --merge
+### Se houve imagens para redenrizar
+
+```bash 
+mogrify -resize "1600x>" -strip -quality 82 *.{jpg,jpeg,png}
 ```
-
-Esse site tem como objetivo apenas um local para escrever.
-Esse site usa o [PaperMod](https://github.com/adityatelange/hugo-PaperMod) como template.
-
  
  
  

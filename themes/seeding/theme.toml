@@ -1,0 +1,17 @@
+name        = "Seeding"
+license     = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "Tema minimalista para leitura longa — LaTeX, code blocks, modos claro/sépia/escuro."
+min_version = "0.120.0"
+
+[author]
+  name     = ""
+  homepage = ""
+
+[features]
+  katex            = true
+  syntax_highlight = true
+  reading_time     = true
+  toc              = true
+  share_buttons    = true
+  profile_mode     = true

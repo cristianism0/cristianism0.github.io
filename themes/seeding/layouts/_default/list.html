@@ -1,0 +1,47 @@
+{{ define "main" }}
+
+<div class="list-header">
+  {{ if .IsHome }}
+    <h1>{{ .Site.Title }}</h1>
+    {{ with .Site.Params.description }}
+      <p>{{ . }}</p>
+    {{ end }}
+  {{ else }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  {{ end }}
+</div>
+
+<ul class="post-list" role="list">
+  {{ range .Pages.ByDate.Reverse }}
+  <li class="post-item">
+    <div class="post-item-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">
+        {{ .Date.Format "2 Jan 2006" }}
+      </time>
+      {{ if .ReadingTime }}
+        <span>⏱ {{ .ReadingTime }} min</span>
+      {{ end }}
+      {{ range .Params.tags }}
+        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+      {{ end }}
+    </div>
+
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+
+    {{ with .Description }}
+      <p>{{ . }}</p>
+    {{ else }}
+      {{ with .Summary }}
+        <p>{{ . | plainify | truncate 180 }}</p>
+      {{ end }}
+    {{ end }}
+
+    <a href="{{ .Permalink }}" class="read-more">Ler artigo →</a>
+  </li>
+  {{ end }}
+</ul>
+
+{{ template "_internal/pagination.html" . }}
+
+{{ end }}

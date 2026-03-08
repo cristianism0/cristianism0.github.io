@@ -1,0 +1,69 @@
+{{ define "main" }}
+
+{{ if .Site.Params.profileMode }}
+<div class="profile-home">
+
+  <div class="profile-card">
+    {{ with .Site.Params.avatar }}
+    <img src="{{ . }}" alt="{{ $.Site.Params.author }}" class="profile-avatar" />
+    {{ end }}
+    <div class="profile-info">
+      <h1 class="profile-name">{{ .Site.Params.author | default .Site.Title }}</h1>
+      {{ with .Site.Params.bio }}
+        <p class="profile-bio">{{ . }}</p>
+      {{ end }}
+      {{ with .Site.Params.social }}
+      <div class="profile-links">
+        {{ with .github }}<a href="https://github.com/{{ . }}" target="_blank" rel="noopener" class="profile-link">GitHub</a>{{ end }}
+        {{ with .twitter }}<a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener" class="profile-link">Twitter</a>{{ end }}
+        {{ with .email }}<a href="mailto:{{ . }}" class="profile-link">Email</a>{{ end }}
+        {{ with .mastodon }}<a href="{{ . }}" target="_blank" rel="noopener me" class="profile-link">Mastodon</a>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="profile-tags-bar">
+    {{ range .Site.Taxonomies.tags.ByCount }}
+      <a href="{{ "/tags/" | relURL }}{{ .Name | urlize }}" class="tag">
+        {{ .Name }} <span class="tag-count">{{ .Count }}</span>
+      </a>
+    {{ end }}
+  </div>
+
+  <div class="section-title">Publicações recentes</div>
+
+</div>
+{{ else }}
+
+<div class="list-header">
+  <h1>{{ .Site.Title }}</h1>
+  {{ with .Site.Params.description }}<p>{{ . }}</p>{{ end }}
+</div>
+
+{{ end }}
+
+<ul class="post-list" role="list">
+  {{ range (.Paginator.Pages) }}
+  <li class="post-item">
+    <div class="post-item-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+      {{ if .ReadingTime }}<span>⏱ {{ .ReadingTime }} min</span>{{ end }}
+      {{ range .Params.tags }}
+        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+      {{ end }}
+    </div>
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ with .Description }}
+      <p>{{ . }}</p>
+    {{ else }}
+      {{ with .Summary }}<p>{{ . | plainify | truncate 180 }}</p>{{ end }}
+    {{ end }}
+    <a href="{{ .Permalink }}" class="read-more">Ler artigo →</a>
+  </li>
+  {{ end }}
+</ul>
+
+{{ template "_internal/pagination.html" . }}
+
+{{ end }}

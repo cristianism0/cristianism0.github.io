@@ -1,12 +1,14 @@
 ---
+title: "O Absurdismo em O Sétimo Selo"
 date: 2026-01-23
-title: O Absurdismo em O Sétimo Selo
-layout: default
-summary: 'Uma análise do filme O Sétimo Selo sob um olhar da filosofia absurdista.'
-tags: ['cinema', 'filosofia', 'literatura']
+lastmod: 2026-01-23          
+description: 'Uma análise do filme O Sétimo Selo sob um olhar da filosofia absurdista.'
+tags: ['cinema', 'absurdismo', 'literatura', 'cyberpunk']
+categories: ["analise", "filosofia"]
+math: false  
+toc: true         
+noindex: false   
 draft: false
-math: false
-mermaid: false
 ---
 
 # O Absurdismo em O Sétimo Selo

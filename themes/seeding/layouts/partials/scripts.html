@@ -102,4 +102,66 @@
     wrapper.appendChild(header);
     wrapper.appendChild(block);
   });
+  
+  var layoutReady;
+
+  function buildLayoutReady() {
+    layoutReady = new Promise(function(resolve) {
+      var fontsReady = document.fonts
+        ? document.fonts.ready
+        : Promise.resolve();
+
+      var imagesReady = new Promise(function(res) {
+        var pending = Array.from(document.images).filter(function(img) {
+          return !img.complete;
+        });
+        if (pending.length === 0) return res();
+        var count = pending.length;
+        pending.forEach(function(img) {
+          img.addEventListener('load',  function() { if (--count === 0) res(); });
+          img.addEventListener('error', function() { if (--count === 0) res(); });
+        });
+      });
+
+      Promise.all([fontsReady, imagesReady]).then(resolve);
+    });
+  }
+
+  buildLayoutReady();
+
+  window.addEventListener('pageshow', function(e) {
+    if (e.persisted) buildLayoutReady();
+  });
+
+  function scrollToTarget(target) {
+    var navHeight = (document.querySelector('.site-nav') || {}).offsetHeight || 52;
+    var top = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+    target.classList.add('fn-highlight');
+    setTimeout(function() { target.classList.remove('fn-highlight'); }, 2000);
+  }
+
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest(
+      'a[href^="#fn:"], a[href^="#fnref:"], a.footnote-ref, a.footnote-backref'
+    );
+    if (!a) return;
+
+    var href     = a.getAttribute('href');
+    var targetId = href.slice(1);
+    var target   = document.getElementById(targetId);
+    if (!target) return;
+
+    e.preventDefault();
+    history.pushState(null, '', href);
+    layoutReady.then(function() { scrollToTarget(target); });
+  });
+
+  window.addEventListener('hashchange', function() {
+    var hash = window.location.hash;
+    if (!hash || (!hash.startsWith('#fn:') && !hash.startsWith('#fnref:'))) return;
+    var target = document.getElementById(hash.slice(1));
+    if (target) layoutReady.then(function() { scrollToTarget(target); });
+  });
+  
 </script>

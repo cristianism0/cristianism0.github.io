@@ -14,7 +14,7 @@
       </time>
       {{ if .ReadingTime }}
         <span>·</span>
-        <span>⏱ {{ .ReadingTime }} min de leitura</span>
+        <span>⏱ {{ .ReadingTime }} min · {{ .WordCount }} palavras</span>
       {{ end }}
     </div>
 
@@ -25,7 +25,6 @@
     {{ end }}
   </header>
 
-  {{/* Índice colapsável — activa com toc: true no front matter */}}
   {{ if and .Params.toc (gt (len .TableOfContents) 50) }}
   <details class="toc" open>
     <summary class="toc-title">
@@ -55,7 +54,6 @@
     </span>
   </footer>
 
-  {{/* Navegação anterior / próximo */}}
   {{ if or .PrevInSection .NextInSection }}
   <nav class="post-nav" aria-label="Navegação entre posts">
     <div class="prev">

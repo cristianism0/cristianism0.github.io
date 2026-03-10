@@ -3,7 +3,7 @@ title: "O Absurdismo em O Sétimo Selo"
 date: 2026-01-23
 lastmod: 2026-01-23          
 description: 'Uma análise do filme O Sétimo Selo sob um olhar da filosofia absurdista.'
-tags: ['cinema', 'absurdismo', 'literatura', 'cyberpunk']
+tags: ['cinema', 'absurdismo', 'literatura']
 categories: ["analise", "filosofia"]
 math: false  
 toc: true         
@@ -306,7 +306,6 @@ Alguns livros e filmes usados como base e outros para aprofundamento:
 - BERGER, Peter L.; LUCKMANN, Thomas. *Construção Social da Realidade*. 1966.
 - BERGER, Peter L. *O Dossel Sagrado*. 1967.
 - SUASSUNA, Ariano. *O Auto da Compadecida*. 1955
-
 
 [^1]: Sartre possui um livro chamado *Náusea* que explora um indivíduo que ignora sua existência para viver sua essência.
 

@@ -20,7 +20,9 @@
   <li class="post-item">
     <div class="post-item-meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
-      {{ if .ReadingTime }}<span>⏱ {{ .ReadingTime }} min</span>{{ end }}
+      {{ if and .Site.Params.readingTime (ne .Params.readingTime false) }}
+        <span>⏱ {{ .ReadingTime }} min</span>
+      {{ end }}
     </div>
     <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
     {{ with .Description }}

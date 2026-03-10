@@ -19,7 +19,7 @@
       <time datetime="{{ .Date.Format "2006-01-02" }}">
         {{ .Date.Format "2 Jan 2006" }}
       </time>
-      {{ if .ReadingTime }}
+      {{ if and .Site.Params.readingTime (ne .Params.readingTime false) }}
         <span>⏱ {{ .ReadingTime }} min</span>
       {{ end }}
       {{ range .Params.tags }}

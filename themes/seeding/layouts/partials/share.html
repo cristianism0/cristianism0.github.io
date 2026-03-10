@@ -1,68 +1,69 @@
-{{/*
-  Share buttons — add more: {{ partial "share.html" . }}
-  shareButtons: true no hugo.toml [params]
-*/}}
-{{ if .Site.Params.shareButtons }}
-<div class="share-bar" aria-label="Partilhar artigo">
-  <span class="share-label">Partilhar:</span>
+{{/* Share buttons — add more: {{ partial "share.html" . }} shareButtons: true
+no hugo.toml [params] */}}
 
-  {{/* Twitter / X */}}
-  <a class="share-btn share-twitter"
-     href="https://twitter.com/intent/tweet?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="Partilhar no Twitter">
-    𝕏 Twitter
-  </a>
+{{ if and .Site.Params.shareButtons (ne .Params.shareButtons false) }}
+<div class="share-bar" aria-label="Compartilhar artigo">
+    <span class="share-label">Compartilhar:</span>
 
-  <button class="share-btn share-mastodon"
-          onclick="shareMastodon('{{ .Permalink }}', '{{ .Title | htmlEscape }}')"
-          aria-label="Partilhar no Mastodon">
-     Mastodon
-  </button>
+    <a
+        class="share-btn"
+        href="https://twitter.com/intent/tweet?text={{ .Title | urlquery }}&url={{ .Permalink | urlquery }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Compartilhar no Twitter"
+    >
+        Twitter
+    </a>
 
-  {{/* LinkedIn */}}
-  <a class="share-btn share-linkedin"
-     href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="Partilhar no LinkedIn">
-    LinkedIn
-  </a>
+    <a
+        class="share-btn"
+        href="https://bsky.app/intent/compose?text={{ .Title | urlquery }}%20{{ .Permalink | urlquery }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Compartilhar no Bluesky"
+    >
+        Bluesky
+    </a>
 
-  {{/* Copiar link */}}
-  <button class="share-btn share-copy"
-          onclick="copyPermalink(this, '{{ .Permalink }}')"
-          aria-label="Copiar link">
-    Copiar link
-  </button>
+    <a
+        class="share-btn"
+        href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Compartilhar no LinkedIn"
+    >
+        LinkedIn
+    </a>
 
-  {{/* WhatsApp (útil em mobile) */}}
-  <a class="share-btn share-whatsapp"
-     href="https://wa.me/?text={{ .Title | urlquery }}%20{{ .Permalink | urlquery }}"
-     target="_blank" rel="noopener noreferrer"
-     aria-label="Partilhar no WhatsApp">
-    WhatsApp
-  </a>
+    <a
+        class="share-btn"
+        href="https://wa.me/?text={{ .Title | urlquery }}%20{{ .Permalink | urlquery }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Compartilhar no WhatsApp"
+    >
+        WhatsApp
+    </a>
+
+    <button
+        class="share-btn"
+        onclick="copyPermalink(this, '{{ .Permalink }}')"
+        aria-label="Copiar link"
+    >
+        Copiar link
+    </button>
 </div>
 
 <script>
-function shareMastodon(url, title) {
-  var instance = prompt('Instância Mastodon (ex: mastodon.social):');
-  if (instance) {
-    window.open('https://' + instance.trim() + '/share?text=' +
-      encodeURIComponent(title + ' ' + url), '_blank');
-  }
-}
-
-function copyPermalink(btn, url) {
-  navigator.clipboard.writeText(url).then(function() {
-    var orig = btn.textContent;
-    btn.textContent = '✓ Copiado';
-    btn.classList.add('copied');
-    setTimeout(function() {
-      btn.textContent = orig;
-      btn.classList.remove('copied');
-    }, 2000);
-  });
-}
+    function copyPermalink(btn, url) {
+        navigator.clipboard.writeText(url).then(function () {
+            btn.textContent = "✓ Copiado";
+            btn.classList.add("copied");
+            setTimeout(function () {
+                btn.textContent = "Copiar link";
+                btn.classList.remove("copied");
+            }, 2000);
+        });
+    }
 </script>
 {{ end }}

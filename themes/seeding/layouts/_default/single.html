@@ -8,13 +8,19 @@
       {{ range .Params.tags }}
         <a href="{{ "/tags/" | relURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
       {{ end }}
-      {{ if .Params.tags }}<span>·</span>{{ end }}
-      <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">
-        {{ .Date.Format "2 January 2006" }}
-      </time>
-      {{ if .ReadingTime }}
-        <span>·</span>
-        <span>⏱ {{ .ReadingTime }} min · {{ .WordCount }} palavras</span>
+      {{ if and .Params.tags .Params.date }}<span>·</span>{{ end }}
+      {{ if .Params.date }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">
+          {{ .Date.Format "2 January 2006" }}
+        </time>
+      {{ end }}
+      {{ if and .Site.Params.readingTime (ne .Params.readingTime false) }}
+        {{ if .Params.date }}<span>·</span>{{ end }}
+        <span>⏱ {{ .ReadingTime }} min
+          {{ if and .Site.Params.wordCount (ne .Params.wordCount false) }}
+            · {{ .WordCount }} palavras
+          {{ end }}
+        </span>
       {{ end }}
     </div>
 
@@ -49,11 +55,18 @@
       {{ end }}
     </div>
     {{ end }}
+    {{ if .Params.date }}
     <span itemprop="dateModified" content="{{ .Lastmod.Format "2006-01-02" }}">
-      {{ .Date.Format "January 2006" }}
+      {{ if and .Site.Params.lastModified (ne .Params.lastModified false) }}
+        Atualizado em {{ .Lastmod.Format "2 January 2006" }}
+      {{ else }}
+        {{ .Date.Format "January 2006" }}
+      {{ end }}
     </span>
+    {{ end }}
   </footer>
 
+  {{ if and .Site.Params.postNav (ne .Params.postNav false) }}
   {{ if or .PrevInSection .NextInSection }}
   <nav class="post-nav" aria-label="Navegação entre posts">
     <div class="prev">
@@ -69,6 +82,7 @@
       {{ end }}
     </div>
   </nav>
+  {{ end }}
   {{ end }}
 
 </article>

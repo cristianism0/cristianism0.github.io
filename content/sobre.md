@@ -1,5 +1,12 @@
 ---
 title: "Sobre"
+shareButtons: false
+breadcrumbs: false
+readingTime: false
+wordCount: false
+lastModified: false
+postNav: false
+showCopyright: false
 build:
   list: never
   render: always

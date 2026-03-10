@@ -20,12 +20,18 @@ params:
   math: false           # true = KaTeX em todas as páginas
   shareButtons: true    # botões de compartilhar no fim de cada post
   profileMode: false    # true = home com avatar e bio
-  customCSS: false      # true = enable assets/css/custom.css
+  customCSS: false      # true = ativa assets/css/custom.css
+  breadcrumbs: true     # false = não mostra mais o caminho a partir da home
+  readingTime: true     # false = não mostra o tempo de leitura
+  wordCount: true       # false = não mostra a quantidade de palavras
+  lastModified: false   # true = mostra a última modificação
+  postNav: true         # false = não mostra as opções de anterior ou próximo ao final
+  showCopyright: true   # false = esconde o copyright
+  footerText: ""        # texto ao final
 
   social:
     github: "cristianism0"
     twitter: "dracutx86_64"
-    # mastodon: "https://mastodon.social/@user"
     email: "csg2099@gmail.com"
 
 markup:

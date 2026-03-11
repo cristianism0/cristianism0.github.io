@@ -32,13 +32,17 @@
   </header>
 
   {{ if and .Params.toc (gt (len .TableOfContents) 50) }}
-  <details class="toc" open>
-    <summary class="toc-title">
-      <span class="toc-label">Conteúdo</span>
-      <span class="toc-toggle-icon" aria-hidden="true"></span>
-    </summary>
-    <nav>{{ .TableOfContents }}</nav>
-  </details>
+  <aside class="toc-sidebar" id="toc-sidebar" aria-label="Índice">
+    <div class="toc-sidebar-inner">
+      <div class="toc-sidebar-header">
+        <span class="toc-label">Conteúdo</span>
+        <button class="toc-close" id="toc-close" aria-label="Fechar índice">✕</button>
+      </div>
+      <nav>{{ .TableOfContents }}</nav>
+    </div>
+  </aside>
+  <div class="toc-overlay" id="toc-overlay"></div>
+  <button class="toc-fab" id="toc-fab" aria-label="Abrir índice">≡</button>
   {{ end }}
 
   <div class="article-body" itemprop="articleBody">

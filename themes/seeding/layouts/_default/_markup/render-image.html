@@ -6,7 +6,6 @@
 
 {{- if not $u.IsAbs -}}
 {{- $path := strings.TrimPrefix "./" $u.Path -}}
-{{/* Busca a imagem nos Resources para pegar as dimensões */}}
 {{- $img = or (.Page.Resources.Get $path) (resources.Get $path) -}}
 {{- if $img -}}
 {{- $src = $img.RelPermalink -}}
@@ -16,7 +15,11 @@
 {{- end -}}
 
 <figure>
-  <img src="{{ $src }}" {{ if $w }} width="{{ $w }}" height="{{ $h }}" {{ end }} alt="{{ .Text }}" {{ with .Title }}
-    title="{{ . }}" {{ end }} loading="lazy" decoding="async">
+  <img src="{{ $src }}"
+       {{ if $w }}width="{{ $w }}" height="{{ $h }}" style="aspect-ratio: {{ $w }} / {{ $h }};"{{ end }}
+       alt="{{ .Text }}"
+       {{ with .Title }}title="{{ . }}"{{ end }}
+       loading="lazy"
+       decoding="async">
   {{ with .Title }}<figcaption>{{ . }}</figcaption>{{ end }}
 </figure>

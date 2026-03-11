@@ -1,4 +1,4 @@
-baseURL: "https://cristianism0.github.io" 
+baseURL: "https://cristianism0.github.io"
 defaultContentLanguage: pt
 title: "Cristianism0"
 theme: "seeding"
@@ -14,7 +14,7 @@ params:
   description: "Filosofia, computação e literatura."
   avatar: "/images/avatar.jpeg"
   bio: "Escrevo sobre filosofia, código e outras coisas."
-  ogImage: "/images/og.png"   
+  ogImage: "/images/og.png"
   favicon: "/favicon"
 
   math: false           # true = KaTeX em todas as páginas
@@ -28,11 +28,12 @@ params:
   postNav: true         # false = não mostra as opções de anterior ou próximo ao final
   showCopyright: true   # false = esconde o copyright
   footerText: ""        # texto ao final
+  email: "cristianism0.contato@gmail.com"
 
   social:
     github: "cristianism0"
     twitter: "dracutx86_64"
-    email: "csg2099@gmail.com"
+    email: "cristianism0.contato@gmail.com"
 
 markup:
   goldmark:

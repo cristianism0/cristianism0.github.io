@@ -1,167 +1,443 @@
 <script>
-  function setTheme(t) {
-    document.documentElement.setAttribute('data-theme', t);
-    ['light','sepia','dark'].forEach(function(id) {
-      var el = document.getElementById('th-' + id);
-      if (el) el.classList.toggle('active', id === t);
-    });
-    localStorage.setItem('seeding-theme', t);
-  }
-
-  function setFont(s) {
-    document.documentElement.setAttribute('data-font-size', s);
-    ['small','medium','large'].forEach(function(id) {
-      var el = document.getElementById('fs-' + id);
-      if (el) el.classList.toggle('active', id === s);
-    });
-    localStorage.setItem('seeding-font', s);
-  }
-
-  (function() {
-    var t = localStorage.getItem('seeding-theme') || 'light';
-    var f = localStorage.getItem('seeding-font')  || 'medium';
-    setTheme(t);
-    setFont(f);
-  })();
-
-  var bar = document.getElementById('reading-bar');
-  if (bar) {
-    window.addEventListener('scroll', function() {
-      var h   = document.documentElement;
-      var pct = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
-      bar.style.width = Math.min(pct, 100) + '%';
-    }, { passive: true });
-  }
-
-  var backTop = document.getElementById('back-top');
-  if (backTop) {
-    backTop.addEventListener('click', function(e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    window.addEventListener('scroll', function() {
-      backTop.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
-  }
-
-  function copyCode(btn) {
-    var pre = btn.closest('.code-wrap').querySelector('pre');
-    var text = pre ? pre.innerText : '';
-    navigator.clipboard.writeText(text).then(function() {
-      btn.textContent = 'copiado ✓';
-      btn.classList.add('copied');
-      setTimeout(function() {
-        btn.textContent = 'copiar';
-        btn.classList.remove('copied');
-      }, 2000);
-    }).catch(function() {
-      btn.textContent = 'erro';
-    });
-  }
-
-  var langLabels = {
-    'python':'Python', 'py':'Python',
-    'bash':'Bash', 'sh':'Bash', 'shell':'Shell', 'zsh':'Zsh',
-    'rust':'Rust', 'rs':'Rust',
-    'c':'C', 'cpp':'C++', 'cc':'C++',
-    'js':'JavaScript', 'javascript':'JavaScript',
-    'ts':'TypeScript', 'typescript':'TypeScript',
-    'go':'Go', 'java':'Java', 'kotlin':'Kotlin',
-    'html':'HTML', 'css':'CSS', 'scss':'SCSS',
-    'yaml':'YAML', 'toml':'TOML', 'json':'JSON',
-    'sql':'SQL', 'r':'R', 'julia':'Julia',
-    'haskell':'Haskell', 'hs':'Haskell',
-    'latex':'LaTeX', 'tex':'LaTeX',
-    'markdown':'Markdown', 'md':'Markdown',
-    'dockerfile':'Dockerfile', 'makefile':'Makefile'
-  };
-
-  document.querySelectorAll('.article-body .highlight').forEach(function(block) {
-    var wrapper = document.createElement('div');
-    wrapper.className = 'code-wrap';
-
-    var lang = '';
-    var codeEl = block.querySelector('code');
-    if (codeEl && codeEl.className) {
-      var m = codeEl.className.match(/language-(\w+)/);
-      if (m) lang = m[1].toLowerCase();
+    function setTheme(t) {
+        document.documentElement.setAttribute("data-theme", t);
+        ["light", "sepia", "dark"].forEach(function (id) {
+            var el = document.getElementById("th-" + id);
+            if (el) el.classList.toggle("active", id === t);
+        });
+        localStorage.setItem("seeding-theme", t);
     }
 
-    if (lang) wrapper.setAttribute('data-lang', lang);
-
-    var label = langLabels[lang]
-      || (lang ? lang.charAt(0).toUpperCase() + lang.slice(1) : 'código');
-
-    var header = document.createElement('div');
-    header.className = 'code-header';
-    header.innerHTML =
-      '<span class="code-lang">' + label + '</span>' +
-      '<button class="copy-btn" onclick="copyCode(this)">copiar</button>';
-
-    block.parentNode.insertBefore(wrapper, block);
-    wrapper.appendChild(header);
-    wrapper.appendChild(block);
-  });
-  
-  var layoutReady;
-
-  function buildLayoutReady() {
-    layoutReady = new Promise(function(resolve) {
-      var fontsReady = document.fonts
-        ? document.fonts.ready
-        : Promise.resolve();
-
-      var imagesReady = new Promise(function(res) {
-        var pending = Array.from(document.images).filter(function(img) {
-          return !img.complete;
+    function setFont(s) {
+        document.documentElement.setAttribute("data-font-size", s);
+        ["small", "medium", "large"].forEach(function (id) {
+            var el = document.getElementById("fs-" + id);
+            if (el) el.classList.toggle("active", id === s);
         });
-        if (pending.length === 0) return res();
-        var count = pending.length;
-        pending.forEach(function(img) {
-          img.addEventListener('load',  function() { if (--count === 0) res(); });
-          img.addEventListener('error', function() { if (--count === 0) res(); });
+        localStorage.setItem("seeding-font", s);
+    }
+
+    (function () {
+        var t = localStorage.getItem("seeding-theme") || "light";
+        var f = localStorage.getItem("seeding-font") || "medium";
+        setTheme(t);
+        setFont(f);
+    })();
+
+    /* ── reading bar ── */
+
+    var bar = document.getElementById("reading-bar");
+    if (bar) {
+        window.addEventListener(
+            "scroll",
+            function () {
+                var h = document.documentElement;
+                var pct =
+                    (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+                bar.style.width = Math.min(pct, 100) + "%";
+            },
+            { passive: true },
+        );
+    }
+
+    /* ── back to top ── */
+
+    var backTop = document.getElementById("back-top");
+    if (backTop) {
+        backTop.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
-      });
+        window.addEventListener(
+            "scroll",
+            function () {
+                backTop.classList.toggle("visible", window.scrollY > 400);
+            },
+            { passive: true },
+        );
+    }
 
-      Promise.all([fontsReady, imagesReady]).then(resolve);
-    });
-  }
+    /* ── code blocks ── */
 
-  buildLayoutReady();
+    function copyCode(btn) {
+        var pre = btn.closest(".code-wrap").querySelector("pre");
+        var text = pre ? pre.innerText : "";
+        navigator.clipboard
+            .writeText(text)
+            .then(function () {
+                btn.textContent = "copiado ✓";
+                btn.classList.add("copied");
+                setTimeout(function () {
+                    btn.textContent = "copiar";
+                    btn.classList.remove("copied");
+                }, 2000);
+            })
+            .catch(function () {
+                btn.textContent = "erro";
+            });
+    }
 
-  window.addEventListener('pageshow', function(e) {
-    if (e.persisted) buildLayoutReady();
-  });
+    var langLabels = {
+        python: "Python",
+        py: "Python",
+        bash: "Bash",
+        sh: "Bash",
+        shell: "Shell",
+        zsh: "Zsh",
+        rust: "Rust",
+        rs: "Rust",
+        c: "C",
+        cpp: "C++",
+        cc: "C++",
+        js: "JavaScript",
+        javascript: "JavaScript",
+        ts: "TypeScript",
+        typescript: "TypeScript",
+        go: "Go",
+        java: "Java",
+        kotlin: "Kotlin",
+        html: "HTML",
+        css: "CSS",
+        scss: "SCSS",
+        yaml: "YAML",
+        toml: "TOML",
+        json: "JSON",
+        sql: "SQL",
+        r: "R",
+        julia: "Julia",
+        haskell: "Haskell",
+        hs: "Haskell",
+        latex: "LaTeX",
+        tex: "LaTeX",
+        markdown: "Markdown",
+        md: "Markdown",
+        dockerfile: "Dockerfile",
+        makefile: "Makefile",
+    };
 
-  function scrollToTarget(target) {
-    var navHeight = (document.querySelector('.site-nav') || {}).offsetHeight || 52;
-    var top = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
-    window.scrollTo({ top: top, behavior: 'smooth' });
-    target.classList.add('fn-highlight');
-    setTimeout(function() { target.classList.remove('fn-highlight'); }, 2000);
-  }
+    document
+        .querySelectorAll(".article-body .highlight")
+        .forEach(function (block) {
+            var wrapper = document.createElement("div");
+            wrapper.className = "code-wrap";
 
-  document.addEventListener('click', function(e) {
-    var a = e.target.closest(
-      'a[href^="#fn:"], a[href^="#fnref:"], a.footnote-ref, a.footnote-backref'
-    );
-    if (!a) return;
+            var lang = "";
+            var codeEl = block.querySelector("code");
+            if (codeEl && codeEl.className) {
+                var m = codeEl.className.match(/language-(\w+)/);
+                if (m) lang = m[1].toLowerCase();
+            }
 
-    var href     = a.getAttribute('href');
-    var targetId = href.slice(1);
-    var target   = document.getElementById(targetId);
-    if (!target) return;
+            if (lang) wrapper.setAttribute("data-lang", lang);
 
-    e.preventDefault();
-    history.pushState(null, '', href);
-    layoutReady.then(function() { scrollToTarget(target); });
-  });
+            var label =
+                langLabels[lang] ||
+                (lang
+                    ? lang.charAt(0).toUpperCase() + lang.slice(1)
+                    : "código");
 
-  window.addEventListener('hashchange', function() {
-    var hash = window.location.hash;
-    if (!hash || (!hash.startsWith('#fn:') && !hash.startsWith('#fnref:'))) return;
-    var target = document.getElementById(hash.slice(1));
-    if (target) layoutReady.then(function() { scrollToTarget(target); });
-  });
-  
+            var header = document.createElement("div");
+            header.className = "code-header";
+            header.innerHTML =
+                '<span class="code-lang">' +
+                label +
+                "</span>" +
+                '<button class="copy-btn" onclick="copyCode(this)">copiar</button>';
+
+            block.parentNode.insertBefore(wrapper, block);
+            wrapper.appendChild(header);
+            wrapper.appendChild(block);
+        });
+
+    /* ── footnote marginalia & popover ── */
+
+    (function () {
+        var fnMap = {};
+        document.querySelectorAll(".footnotes li").forEach(function (li) {
+            if (!li.id) return;
+            var clone = li.cloneNode(true);
+            var back = clone.querySelector(
+                "a.footnote-backref, a[href^='#fnref:']",
+            );
+            if (back) back.remove();
+            fnMap[li.id] = clone.innerHTML.trim();
+        });
+
+        var pop = document.createElement("div");
+        pop.id = "fn-popover";
+        pop.setAttribute("role", "tooltip");
+        pop.setAttribute("aria-live", "polite");
+        document.body.appendChild(pop);
+
+        var activeTrigger = null;
+
+        function closePopover() {
+            pop.classList.remove("fn-pop-visible");
+            pop.innerHTML = "";
+            if (activeTrigger) {
+                activeTrigger.removeAttribute("aria-expanded");
+                activeTrigger = null;
+            }
+            document
+                .querySelectorAll(".fn-marginal.fn-marginal-active")
+                .forEach(function (m) {
+                    m.classList.remove("fn-marginal-active");
+                });
+        }
+
+        function positionPopover(anchor) {
+            var rect = anchor.getBoundingClientRect();
+            var popW = Math.min(340, window.innerWidth - 32);
+            pop.style.width = popW + "px";
+
+            var left = rect.left + window.scrollX;
+            if (left + popW > window.scrollX + window.innerWidth - 16)
+                left = window.scrollX + window.innerWidth - popW - 16;
+            if (left < window.scrollX + 8) left = window.scrollX + 8;
+
+            pop.style.left = left + "px";
+            pop.style.top = rect.bottom + window.scrollY + 8 + "px";
+            pop.style.visibility = "hidden";
+            pop.classList.add("fn-pop-visible");
+            var popH = pop.offsetHeight;
+            pop.classList.remove("fn-pop-visible");
+            pop.style.visibility = "";
+
+            if (
+                rect.bottom + window.scrollY + 8 + popH >
+                window.scrollY + window.innerHeight - 8
+            )
+                pop.style.top = rect.top + window.scrollY - popH - 8 + "px";
+
+            pop.classList.add("fn-pop-visible");
+        }
+
+        /* ── marginalha ── */
+
+        var marginalMap = {};
+
+        function buildMarginals() {
+            Object.values(marginalMap).forEach(function (m) {
+                m.remove();
+            });
+            marginalMap = {};
+            if (window.innerWidth < 1280) return;
+            document
+                .querySelectorAll('.article-body a[href^="#fn:"]')
+                .forEach(function (a) {
+                    var fnId = a.getAttribute("href").slice(1);
+                    if (!fnMap[fnId]) return;
+                    var m = document.createElement("aside");
+                    m.className = "fn-marginal";
+                    m.setAttribute("aria-label", "Nota de rodapé");
+                    m.innerHTML = fnMap[fnId];
+                    m.dataset.fnId = fnId;
+                    document.body.appendChild(m);
+                    marginalMap[fnId] = m;
+                });
+        }
+
+        function showMarginal(fnId, anchor) {
+            var m = marginalMap[fnId];
+            if (!m) return false;
+            var rect = anchor.getBoundingClientRect();
+            m.style.top = rect.top + window.scrollY + "px";
+            document
+                .querySelectorAll(".fn-marginal.fn-marginal-active")
+                .forEach(function (x) {
+                    x.classList.remove("fn-marginal-active");
+                });
+            m.classList.add("fn-marginal-active");
+            return true;
+        }
+
+        /* ── click handler ── */
+
+        document.addEventListener("click", function (e) {
+            var fnRef = e.target.closest('a[href^="#fn:"]');
+            var backRef = e.target.closest(
+                'a[href^="#fnref:"], a.footnote-backref',
+            );
+
+            if (!fnRef && !backRef) {
+                if (!pop.contains(e.target)) closePopover();
+                return;
+            }
+
+            if (backRef) {
+                closePopover();
+                return;
+            }
+
+            e.preventDefault();
+
+            var fnId = fnRef.getAttribute("href").slice(1);
+            if (!fnMap[fnId]) return;
+
+            if (activeTrigger === fnRef) {
+                closePopover();
+                return;
+            }
+
+            closePopover();
+            activeTrigger = fnRef;
+            fnRef.setAttribute("aria-expanded", "true");
+
+            if (showMarginal(fnId, fnRef)) return;
+
+            pop.innerHTML = fnMap[fnId];
+            positionPopover(fnRef);
+        });
+
+        var resizeTimer;
+        window.addEventListener(
+            "resize",
+            function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    closePopover();
+                    buildMarginals();
+                }, 250);
+            },
+            { passive: true },
+        );
+
+        buildMarginals();
+
+        /* ── expor para o módulo do TOC ── */
+        window._closePopover = closePopover;
+    })();
+
+    /* ── contact link ── */
+
+    var contactLink = document.querySelector(".contact-link");
+    if (contactLink) {
+        contactLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            var user = this.getAttribute("data-user");
+            var domain = this.getAttribute("data-domain");
+            window.location = "mailto:" + user + "@" + domain;
+        });
+    }
+
+    /* ── TOC sidebar ── */
+
+    (function () {
+        var sidebar = document.getElementById("toc-sidebar");
+        var overlay = document.getElementById("toc-overlay");
+        var fab = document.getElementById("toc-fab");
+        var closeBtn = document.getElementById("toc-close");
+
+        if (!sidebar) return;
+
+        var isDesktop = window.innerWidth >= 1024;
+        var userClosed = false;
+
+        function openToc() {
+            sidebar.classList.add("toc-open");
+            document.body.classList.add("toc-sidebar-open");
+            if (overlay) overlay.classList.add("toc-open");
+        }
+
+        function closeToc() {
+            sidebar.classList.remove("toc-open");
+            document.body.classList.remove("toc-sidebar-open");
+            if (overlay) overlay.classList.remove("toc-open");
+        }
+
+        function toggleToc() {
+            if (sidebar.classList.contains("toc-open")) {
+                userClosed = true;
+                closeToc();
+            } else {
+                userClosed = false;
+                openToc();
+            }
+        }
+
+        /* Abrir por padrão no desktop apenas na primeira visita */
+        if (isDesktop && !userClosed) openToc();
+
+        if (fab) fab.addEventListener("click", toggleToc);
+        if (closeBtn)
+            closeBtn.addEventListener("click", function () {
+                userClosed = true;
+                closeToc();
+            });
+        if (overlay)
+            overlay.addEventListener("click", function () {
+                userClosed = true;
+                closeToc();
+            });
+
+        /* Fechar ao clicar fora — não interferir com footnotes */
+        document.addEventListener("click", function (e) {
+            if (!sidebar.classList.contains("toc-open")) return;
+            if (sidebar.contains(e.target)) return;
+            if (fab && fab.contains(e.target)) return;
+            if (e.target.closest('a[href^="#fn:"]')) return;
+            if (e.target.closest("#fn-popover")) return;
+            closeToc();
+        });
+
+        /* Escape — fechar TOC e popover de footnote juntos */
+        document.addEventListener("keydown", function (e) {
+            if (e.key !== "Escape") return;
+            closeToc();
+            if (window._closePopover) window._closePopover();
+        });
+
+        /* Highlight do link ativo ao rolar */
+        var tocLinks = sidebar.querySelectorAll("nav a");
+        var headings = Array.from(
+            document.querySelectorAll(".article-body h2, .article-body h3"),
+        );
+
+        if (headings.length && tocLinks.length) {
+            var observer = new IntersectionObserver(
+                function (entries) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) return;
+                        var id = entry.target.id;
+                        tocLinks.forEach(function (a) {
+                            a.classList.toggle(
+                                "toc-active",
+                                a.getAttribute("href") === "#" + id,
+                            );
+                        });
+                    });
+                },
+                { rootMargin: "-52px 0px -60% 0px", threshold: 0 },
+            );
+
+            headings.forEach(function (h) {
+                if (h.id) observer.observe(h);
+            });
+        }
+
+        /* Fechar ao clicar num link no mobile */
+        tocLinks.forEach(function (a) {
+            a.addEventListener("click", function () {
+                if (window.innerWidth < 1024) {
+                    userClosed = true;
+                    closeToc();
+                }
+            });
+        });
+
+        /* Resize — respeitar preferência do utilizador */
+        window.addEventListener(
+            "resize",
+            function () {
+                isDesktop = window.innerWidth >= 1024;
+                if (isDesktop && !userClosed) {
+                    openToc();
+                    if (overlay) overlay.classList.remove("toc-open");
+                } else if (!isDesktop) {
+                    if (overlay) overlay.classList.remove("toc-open");
+                }
+            },
+            { passive: true },
+        );
+    })();
 </script>

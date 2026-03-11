@@ -26,6 +26,10 @@ Redimensionar e otimizar antes de commitar:
 ```bash
 mogrify -resize "1600x>" -strip -quality 82 *.{jpg,jpeg,png}
 ```
+Ou, se quiser para para webp para menor peso:
+```bash
+mogrify -format webp -resize "1600x>" -strip -quality 82 *.{jpg,jpeg,png}
+```
 
 Imagens devem ficar no page bundle do post:
 ```

@@ -100,7 +100,7 @@
 html {
     font-size: var(--base-size);
     -webkit-text-size-adjust: 100%;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
 }
 
 :target {
@@ -134,7 +134,7 @@ body {
     height: 2px;
     width: 0%;
     background: var(--accent);
-    z-index: 1000;
+    z-index: 9999;
     transition: width 80ms linear;
 }
 
@@ -387,42 +387,46 @@ body {
     max-width: 58ch;
 }
 
-/* ─── Table of contents ───────────────────────────────────── */
+/* ─── Table of contents ──────────────────────────────────── */
 
-.toc {
-    margin: 0 0 2.5rem;
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    font-size: 0.88rem;
-    font-family: var(--font-ui);
+.toc-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100vh;
+    background: var(--bg);
+    border-right: 1px solid var(--border);
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 280ms ease;
     overflow: hidden;
 }
 
-.toc summary {
-    list-style: none;
+.toc-sidebar.toc-open {
+    transform: translateX(0);
 }
 
-.toc summary::-webkit-details-marker {
-    display: none;
+.toc-sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
 }
 
-.toc-title {
+.toc-sidebar-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.9rem 1.5rem;
-    cursor: pointer;
-    user-select: none;
-    gap: 0.5rem;
-    transition: background var(--transition);
-}
-
-.toc-title:hover {
-    background: var(--bg-code);
+    padding: 1rem 1.2rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
 }
 
 .toc-label {
+    font-family: var(--font-ui);
     font-weight: 600;
     color: var(--text-muted);
     text-transform: uppercase;
@@ -430,87 +434,146 @@ body {
     font-size: 0.75rem;
 }
 
-.toc-toggle-icon {
-    width: 14px;
-    height: 14px;
-    flex-shrink: 0;
-    position: relative;
+.toc-close {
+    background: none;
+    border: none;
+    cursor: pointer;
     color: var(--text-faint);
-    transition: transform var(--transition);
+    font-size: 0.9rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition);
+    line-height: 1;
 }
 
-.toc-toggle-icon::before,
-.toc-toggle-icon::after {
-    content: "";
-    position: absolute;
-    background: currentColor;
-    border-radius: 2px;
-    top: 50%;
-    transition: transform var(--transition);
+.toc-close:hover {
+    background: var(--bg-surface);
+    color: var(--text);
 }
 
-.toc-toggle-icon::before {
-    width: 8px;
-    height: 2px;
-    left: 0;
-    transform: translateY(-50%) rotate(45deg);
-    transform-origin: right center;
+.toc-sidebar nav {
+    overflow-y: auto;
+    flex: 1;
+    padding: 0.8rem 1.2rem 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
 }
 
-.toc-toggle-icon::after {
-    width: 8px;
-    height: 2px;
-    right: 0;
-    transform: translateY(-50%) rotate(-45deg);
-    transform-origin: left center;
-}
-
-details.toc:not([open]) .toc-toggle-icon::before {
-    transform: translateY(-50%) rotate(-45deg);
-}
-
-details.toc:not([open]) .toc-toggle-icon::after {
-    transform: translateY(-50%) rotate(45deg);
-}
-
-.toc nav {
-    padding: 0 1.5rem 1rem;
-    border-top: 1px solid var(--border);
-}
-
-.toc nav ul {
+.toc-sidebar nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.toc nav > ul {
-    padding-top: 0.7rem;
-}
-
-.toc nav li {
-    margin: 0.3rem 0;
+.toc-sidebar nav li {
+    margin: 0.25rem 0;
     line-height: 1.5;
 }
 
-.toc nav li li {
+.toc-sidebar nav li li {
     padding-left: 1rem;
 }
-.toc nav li li li {
+
+.toc-sidebar nav li li li {
     padding-left: 2rem;
 }
 
-.toc nav a {
-    color: var(--link);
+.toc-sidebar nav a {
+    font-family: var(--font-ui);
+    font-size: 0.84rem;
+    color: var(--text-muted);
     text-decoration: none;
-    transition: color var(--transition);
-    display: inline-block;
+    display: block;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition);
+    border-left: 2px solid transparent;
 }
 
-.toc nav a:hover {
-    color: var(--link-hover);
-    text-decoration: underline;
-    text-underline-offset: 2px;
+.toc-sidebar nav a:hover {
+    color: var(--text);
+    background: var(--bg-surface);
+}
+
+.toc-sidebar nav a.toc-active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+/* ── Overlay ── */
+
+.toc-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 299;
+    opacity: 0;
+    transition: opacity 280ms ease;
+}
+
+.toc-overlay.toc-open {
+    display: block;
+    opacity: 1;
+}
+
+/* ── Botão flutuante ── */
+
+.toc-fab {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    box-shadow: 0 2px 8px var(--shadow);
+    transition: all var(--transition);
+    z-index: 198;
+    line-height: 1;
+}
+
+.toc-fab:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ── Desktop ── */
+
+@media (min-width: 1024px) {
+    .toc-overlay {
+        display: none !important;
+    }
+
+    .toc-close {
+        display: none;
+    }
+
+    .toc-fab {
+        display: none;
+    }
+
+    body:not(.toc-sidebar-open) .toc-fab {
+        display: flex;
+    }
+}
+
+/* ── Mobile/tablet ── */
+
+@media (max-width: 1023px) {
+    .toc-sidebar {
+        width: min(280px, 85vw);
+        box-shadow: 4px 0 24px var(--shadow);
+    }
 }
 
 /* ─── Article body ────────────────────────────────────────── */
@@ -979,6 +1042,63 @@ kbd {
     border-color: var(--accent);
 }
 
+/* ─── Footnote Popover ────────────────────────────────────── */
+
+#fn-popover {
+    display: none;
+    position: absolute;
+    z-index: 9000;
+    max-width: 340px;
+    padding: 0.75rem 1rem;
+    background: var(--bg-card, var(--bg));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+    font-size: 0.82rem;
+    font-family: var(--font-ui);
+    color: var(--text-muted);
+    line-height: 1.6;
+    pointer-events: auto;
+}
+
+#fn-popover.fn-pop-visible {
+    display: block;
+    animation: fn-pop-in 0.15s ease;
+}
+
+@keyframes fn-pop-in {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ─── Footnote Marginalha ─────────────────────────────────── */
+
+.fn-marginal {
+    display: none;
+    position: absolute;
+    width: 220px;
+    right: calc(50% - var(--content-width, 680px) / 2 - 240px);
+    padding: 0.6rem 0.8rem;
+    background: transparent;
+    border-left: 2px solid var(--accent-soft, var(--border));
+    font-size: 0.78rem;
+    font-family: var(--font-ui);
+    color: var(--text-muted);
+    line-height: 1.55;
+    pointer-events: none;
+}
+
+.fn-marginal.fn-marginal-active {
+    display: block;
+    animation: fn-pop-in 0.15s ease;
+}
+
 /* ─── Article footer ──────────────────────────────────────── */
 
 .article-footer {
@@ -1389,6 +1509,11 @@ kbd {
     #back-top {
         bottom: 1rem;
         right: 1rem;
+    }
+
+    .toc-fab {
+        bottom: 1rem;
+        left: 1rem;
     }
 
     .share-bar {

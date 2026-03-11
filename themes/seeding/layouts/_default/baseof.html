@@ -5,7 +5,7 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body>
+<body class="{{ if eq .Kind "page" }}is-article{{ end }}">
 
   <div id="reading-bar" aria-hidden="true"></div>
 
@@ -48,12 +48,14 @@
         <span>© {{ now.Year }} {{ .Site.Params.author }}</span>
         <span>·</span>
       {{ end }}
-      <span>{{ .Site.Title }}</span>
-      <span>·</span>
       <a href="{{ "/tags" | relURL }}">Tags</a>
       {{ with .Site.Params.social }}
         {{ with .github }}<span>·</span><a href="https://github.com/{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
         {{ with .twitter }}<span>·</span><a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener">Twitter</a>{{ end }}
+      {{ end }}
+      {{ with .Site.Params.email }}
+      <span>·</span>
+      <a href="#" class="contact-link" data-user="{{ index (split . "@") 0 }}" data-domain="{{ index (split . "@") 1 }}">Contato</a>
       {{ end }}
       <span>·</span>
       <a href="{{ "/index.xml" | relURL }}">RSS</a>

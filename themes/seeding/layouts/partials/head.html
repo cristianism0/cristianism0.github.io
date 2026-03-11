@@ -52,6 +52,10 @@
 {{ end }}
 {{ end }}
 
+{{ if .IsPage }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/littlefoot@4.0.1/dist/littlefoot.css" crossorigin="anonymous" />
+{{ end }}
+
 {{ if or .Params.math .Site.Params.math }}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous" />
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>

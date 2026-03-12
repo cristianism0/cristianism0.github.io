@@ -440,4 +440,25 @@
             { passive: true },
         );
     })();
+    // Mobile menu
+    (function () {
+      const btn     = document.getElementById('mobile-menu-btn');
+      const drawer  = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('mobile-overlay');
+      if (!btn) return;
+    
+      function toggle(open) {
+        btn.classList.toggle('open', open);
+        drawer.classList.toggle('open', open);
+        overlay.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+    
+      btn.addEventListener('click', () => toggle(!drawer.classList.contains('open')));
+      overlay.addEventListener('click', () => toggle(false));
+    
+      // Fecha ao navegar
+      drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
+    })();
 </script>

@@ -8,7 +8,7 @@
     <img src="{{ . }}" alt="{{ $.Site.Params.author }}" class="profile-avatar" />
     {{ end }}
     <div class="profile-info">
-      <h1 class="profile-name">{{ .Site.Params.author | default .Site.Title }}</h1>
+      <h1 class="profile-name">{{ .Site.Params.homeTitle | default .Site.Title }}</h1>
       {{ with .Site.Params.bio }}
         <p class="profile-bio">{{ . }}</p>
       {{ end }}
@@ -36,7 +36,7 @@
 {{ else }}
 
 <div class="list-header">
-  <h1>{{ .Site.Title }}</h1>
+  <h1>{{ .Site.Params.homeTitle }}</h1>
   {{ with .Site.Params.description }}<p>{{ . }}</p>{{ end }}
 </div>
 
@@ -60,7 +60,7 @@
     {{ else }}
       {{ with .Summary }}<p>{{ . | plainify | truncate 180 }}</p>{{ end }}
     {{ end }}
-    <a href="{{ .Permalink }}" class="read-more">Ler artigo →</a>
+    <!--<a href="{{ .Permalink }}" class="read-more">Ler artigo →</a>-->
   </li>
   {{ end }}
 </ul>

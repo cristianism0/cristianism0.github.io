@@ -11,8 +11,10 @@
 
   <nav class="site-nav" role="navigation" aria-label="Navegação principal">
     <div class="nav-left">
-      <a href="{{ .Site.BaseURL }}" class="brand">{{ .Site.Params.homeLabel }}</a>
-
+        <a href="{{ .Site.BaseURL }}" class="brand" id="mobile-menu-btn"
+           aria-label="Menu" aria-expanded="false"
+           aria-controls="mobile-drawer">{{ .Site.Params.homeLabel }}</a>
+        
       {{ if .Site.Menus.main }}
       <ul class="nav-menu" role="list">
         {{ range .Site.Menus.main }}
@@ -36,11 +38,7 @@
       <button class="ctrl-btn"        id="th-sepia" onclick="setTheme('sepia')" title="Modo sépia"  aria-label="Modo sépia">◐</button>
       <button class="ctrl-btn"        id="th-dark"  onclick="setTheme('dark')"  title="Modo escuro" aria-label="Modo escuro">◑</button>
     </div>
-    <button class="mobile-menu-btn" id="mobile-menu-btn"
-            aria-label="Abrir menu" aria-expanded="false"
-            aria-controls="mobile-drawer">
-      <span></span><span></span><span></span>
-    </button>
+
   </nav>
   <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-label="Menu">
     <nav>

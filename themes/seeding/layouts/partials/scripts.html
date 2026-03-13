@@ -355,7 +355,6 @@
             }
         }
 
-        /* Abrir por padrão no desktop apenas na primeira visita */
         if (isDesktop && !userClosed) openToc();
 
         if (fab) fab.addEventListener("click", toggleToc);
@@ -370,7 +369,6 @@
                 closeToc();
             });
 
-        /* Fechar ao clicar fora — não interferir com footnotes */
         document.addEventListener("click", function (e) {
             if (!sidebar.classList.contains("toc-open")) return;
             if (sidebar.contains(e.target)) return;
@@ -380,14 +378,12 @@
             closeToc();
         });
 
-        /* Escape — fechar TOC e popover de footnote juntos */
         document.addEventListener("keydown", function (e) {
             if (e.key !== "Escape") return;
             closeToc();
             if (window._closePopover) window._closePopover();
         });
 
-        /* Highlight do link ativo ao rolar */
         var tocLinks = sidebar.querySelectorAll("nav a");
         var headings = Array.from(
             document.querySelectorAll(".article-body h2, .article-body h3"),
@@ -440,25 +436,27 @@
             { passive: true },
         );
     })();
-    // Mobile menu
+    
+    // Mobile Menu
     (function () {
-      const btn     = document.getElementById('mobile-menu-btn');
-      const drawer  = document.getElementById('mobile-drawer');
-      const overlay = document.getElementById('mobile-overlay');
+      var btn     = document.getElementById('mobile-menu-btn');
+      var drawer  = document.getElementById('mobile-drawer');
+      var overlay = document.getElementById('mobile-overlay');
       if (!btn) return;
     
       function toggle(open) {
-        btn.classList.toggle('open', open);
         drawer.classList.toggle('open', open);
         overlay.classList.toggle('open', open);
         btn.setAttribute('aria-expanded', open);
         document.body.style.overflow = open ? 'hidden' : '';
       }
     
-      btn.addEventListener('click', () => toggle(!drawer.classList.contains('open')));
-      overlay.addEventListener('click', () => toggle(false));
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggle(!drawer.classList.contains('open'));
+      });
     
-      // Fecha ao navegar
+      overlay.addEventListener('click', () => toggle(false));
       drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
     })();
 </script>

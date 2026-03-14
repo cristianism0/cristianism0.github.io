@@ -441,31 +441,31 @@
 
     /* ── Mobile Menu ── */
 
-    (function () {
-        var btn = document.getElementById("mobile-menu-btn");
-        var drawer = document.getElementById("mobile-drawer");
-        var overlay = document.getElementById("mobile-overlay");
-        if (!btn) return;
+(function () {
+    var btn = document.getElementById("mobile-menu-btn");
+    var drawer = document.getElementById("mobile-drawer");
+    var overlay = document.getElementById("mobile-overlay");
+    if (!btn) return;
 
-        function toggle(open) {
-            drawer.classList.toggle("open", open);
-            overlay.classList.toggle("open", open);
-            btn.setAttribute("aria-expanded", open);
-            document.body.style.overflow = open ? "hidden" : "";
-        }
+    function toggle(open) {
+        drawer.classList.toggle("open", open);
+        overlay.classList.toggle("open", open);
+        btn.setAttribute("aria-expanded", open);
+        document.body.style.overflow = open ? "hidden" : "";
+    }
 
-        btn.addEventListener("click", function (e) {
-            e.stopPropagation();
+    btn.addEventListener("click", function (e) {
+        if (window.innerWidth <= 640) {
+            e.preventDefault(); // ← só bloqueia em mobile
             toggle(!drawer.classList.contains("open"));
-        });
+        }
+        // desktop: comportamento padrão do <a href="/"> — vai para home
+    });
 
-        overlay.addEventListener("click", function () {
-            toggle(false);
-        });
-        drawer.querySelectorAll("a").forEach(function (a) {
-            a.addEventListener("click", function () {
-                toggle(false);
-            });
-        });
-    })();
+    overlay.addEventListener("click", function () { toggle(false); });
+    drawer.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () { toggle(false); });
+    });
+})();
+
 </script>

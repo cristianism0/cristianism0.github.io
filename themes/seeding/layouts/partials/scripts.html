@@ -375,6 +375,8 @@
             if (fab && fab.contains(e.target)) return;
             if (e.target.closest('a[href^="#fn:"]')) return;
             if (e.target.closest("#fn-popover")) return;
+            if (e.target.closest("a:not([href^='#'])"))
+                return; /* ← fix: não interfere em links de navegação */
             closeToc();
         });
 
@@ -436,27 +438,34 @@
             { passive: true },
         );
     })();
-    
-    // Mobile Menu
+
+    /* ── Mobile Menu ── */
+
     (function () {
-      var btn     = document.getElementById('mobile-menu-btn');
-      var drawer  = document.getElementById('mobile-drawer');
-      var overlay = document.getElementById('mobile-overlay');
-      if (!btn) return;
-    
-      function toggle(open) {
-        drawer.classList.toggle('open', open);
-        overlay.classList.toggle('open', open);
-        btn.setAttribute('aria-expanded', open);
-        document.body.style.overflow = open ? 'hidden' : '';
-      }
-    
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        toggle(!drawer.classList.contains('open'));
-      });
-    
-      overlay.addEventListener('click', () => toggle(false));
-      drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
+        var btn = document.getElementById("mobile-menu-btn");
+        var drawer = document.getElementById("mobile-drawer");
+        var overlay = document.getElementById("mobile-overlay");
+        if (!btn) return;
+
+        function toggle(open) {
+            drawer.classList.toggle("open", open);
+            overlay.classList.toggle("open", open);
+            btn.setAttribute("aria-expanded", open);
+            document.body.style.overflow = open ? "hidden" : "";
+        }
+
+        btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            toggle(!drawer.classList.contains("open"));
+        });
+
+        overlay.addEventListener("click", function () {
+            toggle(false);
+        });
+        drawer.querySelectorAll("a").forEach(function (a) {
+            a.addEventListener("click", function () {
+                toggle(false);
+            });
+        });
     })();
 </script>

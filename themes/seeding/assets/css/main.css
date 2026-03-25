@@ -1627,3 +1627,60 @@ kbd {
         gap: 1rem;
     }
 }
+
+/* ─── Pagination ──────────────────────────────────────────── */
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 4rem 0 2rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.page-item {
+    margin: 0;
+}
+
+.page-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 0.5rem;
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all var(--transition);
+    cursor: pointer;
+    line-height: 1;
+}
+
+.page-item:not(.disabled):not(.active) .page-link:hover {
+    background: var(--bg-surface);
+    border-color: var(--text-faint);
+    color: var(--text);
+}
+
+.page-item.active .page-link {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+    cursor: default;
+}
+
+.page-item.disabled .page-link {
+    color: var(--text-faint);
+    background: transparent;
+    border-color: var(--border);
+    opacity: 0.4;
+    cursor: not-allowed;
+}

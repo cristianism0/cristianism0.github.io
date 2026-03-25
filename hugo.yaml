@@ -11,9 +11,9 @@ enableRobotsTXT: true
 
 params:
   author: "Cristian"
-  homeTitle: "Olá, bem vindo! ☘️"
-  homeLabel: "Home"
-  description: "Filosofia, computação e literatura."
+  homeTitle: "Olá, bem vindo(a)! ☘️"
+  homeLabel: "☘️"
+  description: "Filosofia, computação e arte."
   avatar: "/images/avatar.jpeg"
   bio: "Escrevo sobre filosofia, código e outras coisas."
   ogImage: "/images/og.png"

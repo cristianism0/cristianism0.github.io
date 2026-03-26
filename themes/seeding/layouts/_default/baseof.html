@@ -42,7 +42,7 @@
   </nav>
   <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-label="Menu">
     <nav>
-      <a href="{{ .Site.BaseURL }}" class="mobile-home">{{ .Site.Params.homeLabel }}</a>
+      <a href="{{ .Site.BaseURL }}" class="mobile-home">{{ .Site.Params.homeLabel }} Início</a>
       {{ if .Site.Menus.main }}
       <ul>
         {{ range .Site.Menus.main }}
@@ -62,18 +62,14 @@
     <div class="page-wrapper">
       {{ if .Site.Params.showCopyright }}
         <span>© {{ now.Year }} {{ .Site.Params.author }}</span>
-        <span>·</span>
       {{ end }}
-      <a href="{{ "/tags" | relURL }}">Tags</a>
       {{ with .Site.Params.social }}
         {{ with .github }}<span>·</span><a href="https://github.com/{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
         {{ with .twitter }}<span>·</span><a href="https://twitter.com/{{ . }}" target="_blank" rel="noopener">Twitter</a>{{ end }}
-      {{ end }}
-      {{ with .Site.Params.email }}
-      <span>·</span>
-      <a href="#" class="contact-link" data-user="{{ index (split . "@") 0 }}" data-domain="{{ index (split . "@") 1 }}">Contato</a>
+        {{ with .email }}<span>·</span><a href="#" class="contact-link" data-user="{{ index (split . "@") 0 }}" data-domain="{{ index (split . "@") 1 }}">Contato</a>
       {{ end }}
       <span>·</span>
+      {{ end }}
       <a href="{{ "/index.xml" | relURL }}">RSS</a>
       {{ with .Site.Params.footerText }}
         <span>·</span>

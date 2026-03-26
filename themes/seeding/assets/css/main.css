@@ -277,19 +277,19 @@ body {
         display: block;
         position: fixed;
         top: 0;
-        right: -280px;
+        left: -280px;
         width: 260px;
         height: 100%;
         background: var(--bg);
-        border-left: 1px solid var(--border);
+        border-right: 1px solid var(--border);
         z-index: 200;
         padding: 4rem 1.5rem 2rem;
-        transition: right 0.3s ease;
+        transition: left 0.3s ease;
         overflow-y: auto;
     }
 
     .mobile-drawer.open {
-        right: 0;
+        left: 0;
     }
 
     .mobile-drawer ul {
@@ -1080,6 +1080,10 @@ kbd {
     line-height: 1.6;
 }
 
+.footnotes hr {
+    display: none;
+}
+
 .footnotes ol {
     padding-left: 1.2rem;
 }
@@ -1174,7 +1178,15 @@ kbd {
     }
 }
 
-/* ─── Footnote Marginalha ─────────────────────────────────── */
+/* Esconde artefatos duplicados dentro da marginalia */
+.fn-marginal .footnote-backref,
+.fn-marginal a[role="doc-backlink"],
+#fn-popover .footnote-backref,
+#fn-popover a[role="doc-backlink"] {
+    display: none !important;
+}
+
+/* ─── Footnote Marginalia ─────────────────────────────────── */
 
 .fn-marginal {
     display: none;

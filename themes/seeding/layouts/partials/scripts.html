@@ -416,10 +416,9 @@
         /* Fechar ao clicar num link no mobile */
         tocLinks.forEach(function (a) {
             a.addEventListener("click", function () {
-                if (window.innerWidth < 1024) {
                     userClosed = true;
                     closeToc();
-                }
+                
             });
         });
 

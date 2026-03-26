@@ -30,12 +30,9 @@ params:
   postNav: true         # false = não mostra as opções de anterior ou próximo ao final
   showCopyright: true   # false = esconde o copyright
   footerText: ""        # texto ao final
-  email: "cristianism0.contato@gmail.com"
 
   social:
     github: "cristianism0"
-    twitter: "dracutx86_64"
-    email: "cristianism0.contato@gmail.com"
 
 markup:
   goldmark:

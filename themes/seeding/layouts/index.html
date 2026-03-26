@@ -41,9 +41,9 @@
 </div>
 
 {{ end }}
-
 <ul class="post-list" role="list">
-  {{ range (.Paginator.Pages) }}
+  {{ $recentPosts := where .Site.RegularPages "Section" "posts" }}
+  {{ range first 5 $recentPosts }}
   <li class="post-item">
     <div class="post-item-meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
@@ -60,11 +60,14 @@
     {{ else }}
       {{ with .Summary }}<p>{{ . | plainify | truncate 180 }}</p>{{ end }}
     {{ end }}
-    <!--<a href="{{ .Permalink }}" class="read-more">Ler artigo →</a>-->
   </li>
   {{ end }}
 </ul>
 
-{{ template "_internal/pagination.html" . }}
+<div style="margin-top: 2.5rem; text-align: center;">
+  <a href="{{ "/posts/" | relURL }}" class="ctrl-btn" style="text-decoration: none; display: inline-block;">Ver todas as publicações</a>
+</div>
+
+{{/* Removi o template de paginação pois agora a lista é fixa */}}
 
 {{ end }}
